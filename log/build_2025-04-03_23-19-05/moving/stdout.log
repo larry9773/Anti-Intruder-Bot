@@ -1,0 +1,32 @@
+running egg_info
+creating ../../build/moving/moving.egg-info
+writing ../../build/moving/moving.egg-info/PKG-INFO
+writing dependency_links to ../../build/moving/moving.egg-info/dependency_links.txt
+writing entry points to ../../build/moving/moving.egg-info/entry_points.txt
+writing requirements to ../../build/moving/moving.egg-info/requires.txt
+writing top-level names to ../../build/moving/moving.egg-info/top_level.txt
+writing manifest file '../../build/moving/moving.egg-info/SOURCES.txt'
+reading manifest file '../../build/moving/moving.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../../build/moving/moving.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build
+creating /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib
+creating /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/moving
+copying moving/__init__.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/moving
+copying moving/moving.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/moving
+running install
+running install_lib
+creating /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving
+copying /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/moving/__init__.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving
+copying /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/moving/moving.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving
+byte-compiling /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving/moving.py to moving.cpython-310.pyc
+running install_data
+copying resource/moving -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/ament_index/resource_index/packages
+running install_egg_info
+Copying ../../build/moving/moving.egg-info to /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving-0.0.0-py3.10.egg-info
+running install_scripts
+Installing moving script to /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/moving
+writing list of installed files to '/home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/install.log'

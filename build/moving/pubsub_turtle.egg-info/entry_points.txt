@@ -1,0 +1,4 @@
+[console_scripts]
+computation_controller = pubsub_turtle.computation_controller:main
+move_controller = pubsub_turtle.move_controller:main
+

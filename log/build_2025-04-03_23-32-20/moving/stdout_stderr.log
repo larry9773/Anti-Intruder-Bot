@@ -1,0 +1,37 @@
+running develop
+running egg_info
+writing ../../build/moving/moving.egg-info/PKG-INFO
+writing dependency_links to ../../build/moving/moving.egg-info/dependency_links.txt
+writing entry points to ../../build/moving/moving.egg-info/entry_points.txt
+writing requirements to ../../build/moving/moving.egg-info/requires.txt
+writing top-level names to ../../build/moving/moving.egg-info/top_level.txt
+reading manifest file '../../build/moving/moving.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../../build/moving/moving.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/move_classes
+copying move_classes/computation1_controller.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/move_classes
+copying move_classes/move1_controller.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/move_classes
+copying move_classes/__init__.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/move_classes
+copying move_classes/moving.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/move_classes
+running install
+running install_lib
+creating /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/move_classes
+copying /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/move_classes/computation1_controller.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/move_classes
+copying /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/move_classes/move1_controller.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/move_classes
+copying /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/move_classes/__init__.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/move_classes
+copying /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/move_classes/moving.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/move_classes
+byte-compiling /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/move_classes/computation1_controller.py to computation1_controller.cpython-310.pyc
+byte-compiling /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/move_classes/move1_controller.py to move1_controller.cpython-310.pyc
+byte-compiling /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/move_classes/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/move_classes/moving.py to moving.cpython-310.pyc
+running install_data
+copying resource/moving -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/ament_index/resource_index/packages
+copying package.xml -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/moving
+running install_egg_info
+removing '/home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/moving/moving.egg-info to /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving-0.0.0-py3.10.egg-info
+running install_scripts
+Installing moving script to /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/moving
+writing list of installed files to '/home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/install.log'

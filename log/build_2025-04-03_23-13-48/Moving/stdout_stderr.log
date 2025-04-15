@@ -1,0 +1,19 @@
+running develop
+running egg_info
+creating pubsub_turtle.egg-info
+writing pubsub_turtle.egg-info/PKG-INFO
+writing dependency_links to pubsub_turtle.egg-info/dependency_links.txt
+writing entry points to pubsub_turtle.egg-info/entry_points.txt
+writing requirements to pubsub_turtle.egg-info/requires.txt
+writing top-level names to pubsub_turtle.egg-info/top_level.txt
+writing manifest file 'pubsub_turtle.egg-info/SOURCES.txt'
+reading manifest file 'pubsub_turtle.egg-info/SOURCES.txt'
+writing manifest file 'pubsub_turtle.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/ezy21kl/Documents/Anti-Intruder-Bot/install/Moving/lib/python3.10/site-packages/pubsub-turtle.egg-link (link to .)
+Installing computation_controller script to /home/ezy21kl/Documents/Anti-Intruder-Bot/install/Moving/lib/pubsub_turtle
+Installing move_controller script to /home/ezy21kl/Documents/Anti-Intruder-Bot/install/Moving/lib/pubsub_turtle
+
+Installed /home/ezy21kl/Documents/Anti-Intruder-Bot/build/Moving
+running symlink_data
+error: can't copy '/home/ezy21kl/Documents/Anti-Intruder-Bot/build/Moving/resource/pubsub_turtle': doesn't exist or not a regular file

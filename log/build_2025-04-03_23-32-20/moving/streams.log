@@ -1,0 +1,41 @@
+[0.550s] Invoking command in '/home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build
+[0.791s] running develop
+[0.983s] Invoked command in '/home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving' returned '0': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build
+[0.984s] Invoking command in '/home/ezy21kl/Documents/Anti-Intruder-Bot/src/moving': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/moving build --build-base /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build install --record /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/install.log --single-version-externally-managed install_data --force
+[1.209s] running egg_info
+[1.209s] writing ../../build/moving/moving.egg-info/PKG-INFO
+[1.209s] writing dependency_links to ../../build/moving/moving.egg-info/dependency_links.txt
+[1.210s] writing entry points to ../../build/moving/moving.egg-info/entry_points.txt
+[1.210s] writing requirements to ../../build/moving/moving.egg-info/requires.txt
+[1.210s] writing top-level names to ../../build/moving/moving.egg-info/top_level.txt
+[1.211s] reading manifest file '../../build/moving/moving.egg-info/SOURCES.txt'
+[1.211s] adding license file 'LICENSE'
+[1.212s] writing manifest file '../../build/moving/moving.egg-info/SOURCES.txt'
+[1.212s] running build
+[1.212s] running build_py
+[1.212s] creating /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/move_classes
+[1.212s] copying move_classes/computation1_controller.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/move_classes
+[1.212s] copying move_classes/move1_controller.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/move_classes
+[1.212s] copying move_classes/__init__.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/move_classes
+[1.212s] copying move_classes/moving.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/move_classes
+[1.213s] running install
+[1.213s] running install_lib
+[1.214s] creating /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/move_classes
+[1.214s] copying /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/move_classes/computation1_controller.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/move_classes
+[1.214s] copying /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/move_classes/move1_controller.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/move_classes
+[1.214s] copying /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/move_classes/__init__.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/move_classes
+[1.214s] copying /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/move_classes/moving.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/move_classes
+[1.214s] byte-compiling /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/move_classes/computation1_controller.py to computation1_controller.cpython-310.pyc
+[1.216s] byte-compiling /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/move_classes/move1_controller.py to move1_controller.cpython-310.pyc
+[1.216s] byte-compiling /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/move_classes/__init__.py to __init__.cpython-310.pyc
+[1.217s] byte-compiling /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/move_classes/moving.py to moving.cpython-310.pyc
+[1.217s] running install_data
+[1.217s] copying resource/moving -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/ament_index/resource_index/packages
+[1.217s] copying package.xml -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/moving
+[1.217s] running install_egg_info
+[1.218s] removing '/home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving-0.0.0-py3.10.egg-info' (and everything under it)
+[1.219s] Copying ../../build/moving/moving.egg-info to /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving-0.0.0-py3.10.egg-info
+[1.219s] running install_scripts
+[1.236s] Installing moving script to /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/moving
+[1.236s] writing list of installed files to '/home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/install.log'
+[1.255s] Invoked command in '/home/ezy21kl/Documents/Anti-Intruder-Bot/src/moving' returned '0': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/moving build --build-base /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build install --record /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/install.log --single-version-externally-managed install_data --force

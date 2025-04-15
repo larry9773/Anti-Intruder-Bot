@@ -1,0 +1,23 @@
+[0.589s] Invoking command in '/home/ezy21kl/Documents/Anti-Intruder-Bot/src/moving': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/moving build --build-base /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build install --record /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/install.log --single-version-externally-managed install_data
+[0.828s] running egg_info
+[0.828s] writing ../../build/moving/moving.egg-info/PKG-INFO
+[0.829s] writing dependency_links to ../../build/moving/moving.egg-info/dependency_links.txt
+[0.829s] writing entry points to ../../build/moving/moving.egg-info/entry_points.txt
+[0.829s] writing requirements to ../../build/moving/moving.egg-info/requires.txt
+[0.829s] writing top-level names to ../../build/moving/moving.egg-info/top_level.txt
+[0.831s] reading manifest file '../../build/moving/moving.egg-info/SOURCES.txt'
+[0.831s] adding license file 'LICENSE'
+[0.832s] writing manifest file '../../build/moving/moving.egg-info/SOURCES.txt'
+[0.832s] running build
+[0.832s] running build_py
+[0.832s] running install
+[0.833s] running install_lib
+[0.834s] running install_data
+[0.834s] copying launch/ignition.launch.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/moving/launch
+[0.835s] running install_egg_info
+[0.836s] removing '/home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving-0.0.0-py3.10.egg-info' (and everything under it)
+[0.836s] Copying ../../build/moving/moving.egg-info to /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving-0.0.0-py3.10.egg-info
+[0.837s] running install_scripts
+[0.855s] Installing moving script to /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/moving
+[0.855s] writing list of installed files to '/home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/install.log'
+[0.874s] Invoked command in '/home/ezy21kl/Documents/Anti-Intruder-Bot/src/moving' returned '0': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/moving build --build-base /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build install --record /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/install.log --single-version-externally-managed install_data

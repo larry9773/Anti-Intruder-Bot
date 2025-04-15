@@ -1,0 +1,34 @@
+[0.581s] Invoking command in '/home/ezy21kl/Documents/Anti-Intruder-Bot/src/moving': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/moving build --build-base /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build install --record /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/install.log --single-version-externally-managed install_data
+[0.788s] running egg_info
+[0.788s] creating ../../build/moving/moving.egg-info
+[0.788s] writing ../../build/moving/moving.egg-info/PKG-INFO
+[0.788s] writing dependency_links to ../../build/moving/moving.egg-info/dependency_links.txt
+[0.788s] writing entry points to ../../build/moving/moving.egg-info/entry_points.txt
+[0.788s] writing requirements to ../../build/moving/moving.egg-info/requires.txt
+[0.789s] writing top-level names to ../../build/moving/moving.egg-info/top_level.txt
+[0.789s] writing manifest file '../../build/moving/moving.egg-info/SOURCES.txt'
+[0.790s] reading manifest file '../../build/moving/moving.egg-info/SOURCES.txt'
+[0.790s] adding license file 'LICENSE'
+[0.790s] writing manifest file '../../build/moving/moving.egg-info/SOURCES.txt'
+[0.791s] running build
+[0.791s] running build_py
+[0.791s] creating /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build
+[0.791s] creating /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib
+[0.791s] creating /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/moving
+[0.791s] copying moving/__init__.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/moving
+[0.791s] copying moving/moving.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/moving
+[0.791s] running install
+[0.791s] running install_lib
+[0.792s] creating /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving
+[0.792s] copying /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/moving/__init__.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving
+[0.792s] copying /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build/lib/moving/moving.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving
+[0.792s] byte-compiling /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving/__init__.py to __init__.cpython-310.pyc
+[0.793s] byte-compiling /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving/moving.py to moving.cpython-310.pyc
+[0.793s] running install_data
+[0.793s] copying resource/moving -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/ament_index/resource_index/packages
+[0.793s] running install_egg_info
+[0.794s] Copying ../../build/moving/moving.egg-info to /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving-0.0.0-py3.10.egg-info
+[0.795s] running install_scripts
+[0.811s] Installing moving script to /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/moving
+[0.811s] writing list of installed files to '/home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/install.log'
+[0.828s] Invoked command in '/home/ezy21kl/Documents/Anti-Intruder-Bot/src/moving' returned '0': CONDA_PROMPT_MODIFIER=(base) PYTHONPATH=/home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/moving build --build-base /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/build install --record /home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/install.log --single-version-externally-managed install_data

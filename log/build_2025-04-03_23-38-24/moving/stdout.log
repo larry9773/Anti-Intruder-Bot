@@ -1,0 +1,36 @@
+running egg_info
+writing ../../build/moving/moving.egg-info/PKG-INFO
+writing dependency_links to ../../build/moving/moving.egg-info/dependency_links.txt
+writing entry points to ../../build/moving/moving.egg-info/entry_points.txt
+writing requirements to ../../build/moving/moving.egg-info/requires.txt
+writing top-level names to ../../build/moving/moving.egg-info/top_level.txt
+reading manifest file '../../build/moving/moving.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../../build/moving/moving.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+creating /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/moving/launch
+copying launch/pubsub_launch.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/moving/launch
+copying launch/ignition.launch.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/moving/launch
+copying launch/turtlebot4_ignition.launch.py -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/moving/launch
+creating /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/moving/worlds
+creating /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/moving/models
+copying models/TODELETE -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/moving/models
+creating /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/moving/models/empty_room
+copying models/empty_room/model.sdf -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/moving/models/empty_room
+copying models/empty_room/model.config -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/moving/models/empty_room
+creating /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/moving/models/empty_room/materials
+creating /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/moving/models/empty_room/materials/textures
+copying models/empty_room/materials/textures/plastered_wall_diff_1k.jpg -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/moving/models/empty_room/materials/textures
+copying models/empty_room/materials/textures/diagonal_parquet_diff_1k.jpg -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/moving/models/empty_room/materials/textures
+creating /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/moving/models/empty_room/meshes
+copying models/empty_room/meshes/empty_room.dae -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/moving/models/empty_room/meshes
+running install_egg_info
+removing '/home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/moving/moving.egg-info to /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving-0.0.0-py3.10.egg-info
+running install_scripts
+Installing moving script to /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/moving
+writing list of installed files to '/home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/install.log'

@@ -1,0 +1,21 @@
+running egg_info
+writing ../../build/moving/moving.egg-info/PKG-INFO
+writing dependency_links to ../../build/moving/moving.egg-info/dependency_links.txt
+writing entry points to ../../build/moving/moving.egg-info/entry_points.txt
+writing requirements to ../../build/moving/moving.egg-info/requires.txt
+writing top-level names to ../../build/moving/moving.egg-info/top_level.txt
+reading manifest file '../../build/moving/moving.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../../build/moving/moving.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+copying worlds/custom_env.world -> /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/share/moving/worlds
+running install_egg_info
+removing '/home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/moving/moving.egg-info to /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/python3.10/site-packages/moving-0.0.0-py3.10.egg-info
+running install_scripts
+Installing moving script to /home/ezy21kl/Documents/Anti-Intruder-Bot/install/moving/lib/moving
+writing list of installed files to '/home/ezy21kl/Documents/Anti-Intruder-Bot/build/moving/install.log'
