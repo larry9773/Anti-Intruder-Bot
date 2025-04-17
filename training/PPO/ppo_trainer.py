@@ -10,6 +10,7 @@ import imageio
 import tqdm
 import gzip
 import shutil
+import magnum as mn
 
 import torch
 import torch.nn as nn
@@ -38,6 +39,8 @@ from habitat_baselines.config.default import get_config
 from habitat_baselines.rl.ppo.ppo_trainer import PPOTrainer
 from pg.base_pg import BasePolicyGradient
 from pg.base_pg_trainer import BasePolicyGradientTrainer
+#from habitat_sim.object_template_manager import ObjectAttributes
+
 
 sensor_settings = {
     "height": 256,
@@ -106,10 +109,14 @@ sim_settings = {
     "default_agent": 0,
     "scene_id" : "data/scene_datasets/gibson/Cantwell.glb",
     #"scene_id": "data/scene_datasets/hm3d/minival/00800-TEEsavR23oF/TEEsavR23oF.basis.glb",  # à modifier si nécessaire
+    #"scene_dataset_config_file" : "data/scene_datasets/hm3d/minival/hm3d_annotated_minival_basis.scene_dataset_config.json",
     "enable_physics": False,
     "seed": 42,
 }
 
+
+
+observations = []
 sim_cfg = habitat_sim.SimulatorConfiguration()
 sim_cfg.scene_id = sim_settings["scene_id"]
 sim_cfg.enable_physics = sim_settings["enable_physics"]
@@ -122,6 +129,25 @@ agent_state = habitat_sim.AgentState()
 agent_state.position = np.array([-4.69643, 0.15825, -2.90618])
 agent.set_state(agent_state)
 
+obj_attr_mgr = sim.get_object_template_manager()
+prim_attr_mgr = sim.get_asset_template_manager()
+stage_attr_mgr = sim.get_stage_template_manager()
+# Manager providing access to rigid objects
+rigid_obj_mgr = sim.get_rigid_object_manager()
+
+
+red_ball = habitat_sim.attributes.ObjectAttributes()
+red_ball.render_asset_handle = "data/objects/sim_ball_target.glb"
+
+red_ball.scale = np.array([0.2, 0.2, 0.2])
+
+red_ball.semantic_id = 0  # @param{type:"integer"}
+
+red_ball_id = obj_attr_mgr.register_template(red_ball, "red_ball")
+offset = np.array([1.0, 0.2, -0.5])  # 1 m vers x, 0.2 m en y, –0.5 m en z
+node = rigid_obj_mgr.get_object_scene_node(red_ball_id)
+node.translation = agent_state.position + offset
+observations.append(sim.get_sensor_observations())
 
 base_config_dict = {
     "habitat": {
@@ -167,22 +193,22 @@ base_config_dict = {
 
 base_config = OmegaConf.create(base_config_dict)
 
-def compress_json_file(input_path: str, output_path: str) -> None:
-    """
-    Lit le fichier JSON situé à input_path et en crée une version compressée gzip à output_path.
-    """
-    if os.path.exists(output_path):
-        print(f"Le fichier compressé {output_path} existe déjà.")
-        return
+#def compress_json_file(input_path: str, output_path: str) -> None:
+"""
+Lit le fichier JSON situé à input_path et en crée une version compressée gzip à output_path.
+"""
+#    if os.path.exists(output_path):
+#        print(f"Le fichier compressé {output_path} existe déjà.")
+#        return
 
-    with open(input_path, 'rb') as f_in:
-        with gzip.open(output_path, 'wb') as f_out:
-            shutil.copyfileobj(f_in, f_out)
-    print(f"Fichier compressé créé : {output_path}")
+#    with open(input_path, 'rb') as f_in:
+#        with gzip.open(output_path, 'wb') as f_out:
+#            shutil.copyfileobj(f_in, f_out)
+#    print(f"Fichier compressé créé : {output_path}")
 
 input_file = "data/scene_datasets/hm3d/hm3d_annotated_basis.scene_dataset_config.json"
 output_file = "data/scene_datasets/hm3d/hm3d_annotated_basis.scene_dataset_config.json.gz"
-compress_json_file(input_file, output_file)
+#compress_json_file(input_file, output_file)
 
 def build_PPO_config():
     # Change for REINFORCE
@@ -199,7 +225,7 @@ def build_PPO_config():
     config.habitat_baselines.checkpoint_interval = 1000000
     config.habitat_baselines.total_num_steps = 150 * 1000
     config.habitat_baselines.force_blind_policy = True
-    config.habitat.dataset.data_path="data/scene_datasets/hm3d/hm3d_annotated_basis.scene_dataset_config.json.gz"
+    config.habitat.dataset.data_path="data/datasets/pointnav/simple_room/v0/{split}/empty_room.json.gz"
     OmegaConf.set_readonly(config, True)
 
     return config
@@ -221,7 +247,6 @@ os.environ["MAGNUM_LOG"] = "quiet"
 os.environ["HABITAT_SIM_LOG"] = "quiet"
 
 # Build the trainer and start training
-
 
 if __name__ == "__main__":
     trainer = PPOTrainer(final_config)
