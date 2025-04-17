@@ -1,0 +1,50 @@
+# ppo_targetnav_train.yaml
+habitat:
+  seed: 42
+  torch_gpu_id: 0
+  dataset:
+    name: "PointNav-Gibson"
+    # Path to the training split of your PointNav dataset (update as needed)
+    data_path: "data/datasets/pointnav/gibson/v1/train/train_cantwell.json.gz"
+    split: "train"
+  sim:
+    # Scene file used for training (ensure this file exists on your system)
+    scene_id: "data/scene_datasets/gibson/Cantwell.glb"
+    enable_physics: false
+    gpu_device_id: 0
+  sensors:
+    - type: "COLOR_SENSOR"
+      uuid: "color_sensor"
+      sensor_type: "COLOR"
+      sensor_subtype: "PINHOLE"
+      resolution: [256, 256]
+      position: [0.0, 1.5, 0.0]
+    - type: "DEPTH_SENSOR"
+      uuid: "depth_sensor"
+      sensor_type: "DEPTH"
+      sensor_subtype: "PINHOLE"
+      resolution: [256, 256]
+      position: [0.0, 1.5, 0.0]
+
+habitat_baselines:
+  experiment_name: "target_nav_train"
+  log_interval: 10
+  save_interval: 1000
+  num_environments: 16
+  eval_interval: 5000
+  eval_num_episodes: 100
+  num_updates: 100000
+  rl:
+    ppo:
+      hidden_size: 512
+      clip_param: 0.2
+      ppo_epoch: 4
+      num_mini_batch: 2
+      value_loss_coef: 0.5
+      entropy_coef: 0.01
+      max_grad_norm: 0.5
+  rl_policy:
+    name: "ResNetPolicy"
+  checkpoint:
+    dir: "data/checkpoints/target_nav_train"
+    interval: 5000
