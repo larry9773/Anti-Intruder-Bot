@@ -1,0 +1,27 @@
+{
+    "stages": {
+      "paths": {
+
+        ".glb": ["Cantwell.glb"]
+      }
+    },
+    "navmesh_instances": {
+      "cantwell_navmesh": "cantwell.navmesh"
+    },
+    "scene_instances": {
+      "configs": [
+        {
+
+          "template_handle": "CantwellScene",
+          "attributes": {
+
+            "stage_instance": {
+              "template_name": "Cantwell.glb"
+            },
+            "navmesh_instance": "cantwell_navmesh"
+          }
+        }
+      ]
+    }
+  }
+  

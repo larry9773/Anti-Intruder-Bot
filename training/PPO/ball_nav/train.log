@@ -1,0 +1,236 @@
+>>>>>>>>>>> FILENAME =  ./train_dir/ball_nav_run_01/checkpoint/.habitat-resume-state.pth
+>>>>>>>>>>> FILENAME =  ./train_dir/ball_nav_run_01/checkpoint/.habitat-resume-state.pth
+[12:45:36:399370]:[Metadata] AttributesManagerBase.h(380)::createFromJsonOrDefaultInternal : <Dataset>: Proposing JSON name : default.scene_dataset_config.json from original name : default| This file does not exist.
+[12:45:36:399616]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (capsule3DSolid:capsule3DSolid_hemiRings_4_cylRings_1_segments_12_halfLen_0.75_useTexCoords_false_useTangents_false) created and registered.
+[12:45:36:399693]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (capsule3DWireframe:capsule3DWireframe_hemiRings_8_cylRings_1_segments_16_halfLen_1) created and registered.
+[12:45:36:399752]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (coneSolid:coneSolid_segments_12_halfLen_1.25_rings_1_useTexCoords_false_useTangents_false_capEnd_true) created and registered.
+[12:45:36:399803]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (coneWireframe:coneWireframe_segments_32_halfLen_1.25) created and registered.
+[12:45:36:399851]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (cubeSolid:cubeSolid) created and registered.
+[12:45:36:399895]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (cubeWireframe:cubeWireframe) created and registered.
+[12:45:36:399942]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (cylinderSolid:cylinderSolid_rings_1_segments_12_halfLen_1_useTexCoords_false_useTangents_false_capEnds_true) created and registered.
+[12:45:36:399990]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (cylinderWireframe:cylinderWireframe_rings_1_segments_32_halfLen_1) created and registered.
+[12:45:36:400035]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (icosphereSolid:icosphereSolid_subdivs_1) created and registered.
+[12:45:36:400078]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (icosphereWireframe:icosphereWireframe_subdivs_1) created and registered.
+[12:45:36:400124]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (uvSphereSolid:uvSphereSolid_rings_8_segments_16_useTexCoords_false_useTangents_false) created and registered.
+[12:45:36:400168]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (uvSphereWireframe:uvSphereWireframe_rings_16_segments_32) created and registered.
+[12:45:36:400208]:[Metadata] AssetAttributesManager.cpp(112)::AssetAttributesManager : Built default primitive asset templates : 12
+[12:45:36:400541]:[Metadata] SceneDatasetAttributesManager.cpp(37)::createObject : File (default) not found, so new default dataset attributes created  and registered.
+[12:45:36:400586]:[Metadata] MetadataMediator.cpp(120)::createSceneDataset : Dataset default successfully created.
+[12:45:36:400638]:[Metadata] AttributesManagerBase.h(380)::createFromJsonOrDefaultInternal : <Physics Manager>: Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json| This file does not exist.
+[12:45:36:400682]:[Metadata] PhysicsAttributesManager.cpp(26)::createObject : File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+[12:45:36:400720]:[Metadata] MetadataMediator.cpp(203)::setActiveSceneDatasetName : Previous active dataset  changed to default successfully.
+[12:45:36:400755]:[Metadata] MetadataMediator.cpp(175)::setCurrPhysicsAttributesHandle : Old physics manager attributes  changed to ./data/default.physics_config.json successfully.
+[12:45:36:400791]:[Metadata] MetadataMediator.cpp(66)::setSimulatorConfiguration : Set new simulator config for scene/stage : data/scene_datasets/Cantwell.glb and dataset : default which is currently active dataset.
+[12:45:36:409617]:[Metadata] AttributesManagerBase.h(380)::createFromJsonOrDefaultInternal : <Dataset>: Proposing JSON name : default.scene_dataset_config.json from original name : default| This file does not exist.
+[12:45:36:409865]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (capsule3DSolid:capsule3DSolid_hemiRings_4_cylRings_1_segments_12_halfLen_0.75_useTexCoords_false_useTangents_false) created and registered.
+[12:45:36:409945]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (capsule3DWireframe:capsule3DWireframe_hemiRings_8_cylRings_1_segments_16_halfLen_1) created and registered.
+[12:45:36:410001]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (coneSolid:coneSolid_segments_12_halfLen_1.25_rings_1_useTexCoords_false_useTangents_false_capEnd_true) created and registered.
+[12:45:36:410052]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (coneWireframe:coneWireframe_segments_32_halfLen_1.25) created and registered.
+[12:45:36:410099]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (cubeSolid:cubeSolid) created and registered.
+[12:45:36:410144]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (cubeWireframe:cubeWireframe) created and registered.
+[12:45:36:410193]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (cylinderSolid:cylinderSolid_rings_1_segments_12_halfLen_1_useTexCoords_false_useTangents_false_capEnds_true) created and registered.
+[12:45:36:410240]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (cylinderWireframe:cylinderWireframe_rings_1_segments_32_halfLen_1) created and registered.
+[12:45:36:410285]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (icosphereSolid:icosphereSolid_subdivs_1) created and registered.
+[12:45:36:410329]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (icosphereWireframe:icosphereWireframe_subdivs_1) created and registered.
+[12:45:36:410395]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (uvSphereSolid:uvSphereSolid_rings_8_segments_16_useTexCoords_false_useTangents_false) created and registered.
+[12:45:36:410442]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (uvSphereWireframe:uvSphereWireframe_rings_16_segments_32) created and registered.
+[12:45:36:410483]:[Metadata] AssetAttributesManager.cpp(112)::AssetAttributesManager : Built default primitive asset templates : 12
+[12:45:36:410794]:[Metadata] SceneDatasetAttributesManager.cpp(37)::createObject : File (default) not found, so new default dataset attributes created  and registered.
+[12:45:36:410837]:[Metadata] MetadataMediator.cpp(120)::createSceneDataset : Dataset default successfully created.
+[12:45:36:410883]:[Metadata] AttributesManagerBase.h(380)::createFromJsonOrDefaultInternal : <Physics Manager>: Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json| This file does not exist.
+[12:45:36:410929]:[Metadata] PhysicsAttributesManager.cpp(26)::createObject : File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+[12:45:36:410967]:[Metadata] MetadataMediator.cpp(203)::setActiveSceneDatasetName : Previous active dataset  changed to default successfully.
+[12:45:36:411003]:[Metadata] MetadataMediator.cpp(175)::setCurrPhysicsAttributesHandle : Old physics manager attributes  changed to ./data/default.physics_config.json successfully.
+[12:45:36:411040]:[Metadata] MetadataMediator.cpp(66)::setSimulatorConfiguration : Set new simulator config for scene/stage : data/scene_datasets/Cantwell.glb and dataset : default which is currently active dataset.
+[12:45:36:419552]:[Metadata] AttributesManagerBase.h(380)::createFromJsonOrDefaultInternal : <Dataset>: Proposing JSON name : default.scene_dataset_config.json from original name : default| This file does not exist.
+[12:45:36:419807]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (capsule3DSolid:capsule3DSolid_hemiRings_4_cylRings_1_segments_12_halfLen_0.75_useTexCoords_false_useTangents_false) created and registered.
+[12:45:36:419881]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (capsule3DWireframe:capsule3DWireframe_hemiRings_8_cylRings_1_segments_16_halfLen_1) created and registered.
+[12:45:36:419933]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (coneSolid:coneSolid_segments_12_halfLen_1.25_rings_1_useTexCoords_false_useTangents_false_capEnd_true) created and registered.
+[12:45:36:419995]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (coneWireframe:coneWireframe_segments_32_halfLen_1.25) created and registered.
+[12:45:36:420040]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (cubeSolid:cubeSolid) created and registered.
+[12:45:36:420084]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (cubeWireframe:cubeWireframe) created and registered.
+[12:45:36:420129]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (cylinderSolid:cylinderSolid_rings_1_segments_12_halfLen_1_useTexCoords_false_useTangents_false_capEnds_true) created and registered.
+[12:45:36:420173]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (cylinderWireframe:cylinderWireframe_rings_1_segments_32_halfLen_1) created and registered.
+[12:45:36:420214]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (icosphereSolid:icosphereSolid_subdivs_1) created and registered.
+[12:45:36:420255]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (icosphereWireframe:icosphereWireframe_subdivs_1) created and registered.
+[12:45:36:420298]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (uvSphereSolid:uvSphereSolid_rings_8_segments_16_useTexCoords_false_useTangents_false) created and registered.
+[12:45:36:420338]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (uvSphereWireframe:uvSphereWireframe_rings_16_segments_32) created and registered.
+[12:45:36:420383]:[Metadata] AssetAttributesManager.cpp(112)::AssetAttributesManager : Built default primitive asset templates : 12
+[12:45:36:420700]:[Metadata] SceneDatasetAttributesManager.cpp(37)::createObject : File (default) not found, so new default dataset attributes created  and registered.
+[12:45:36:420738]:[Metadata] MetadataMediator.cpp(120)::createSceneDataset : Dataset default successfully created.
+[12:45:36:420779]:[Metadata] AttributesManagerBase.h(380)::createFromJsonOrDefaultInternal : <Physics Manager>: Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json| This file does not exist.
+[12:45:36:420821]:[Metadata] PhysicsAttributesManager.cpp(26)::createObject : File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+[12:45:36:420857]:[Metadata] MetadataMediator.cpp(203)::setActiveSceneDatasetName : Previous active dataset  changed to default successfully.
+[12:45:36:420888]:[Metadata] MetadataMediator.cpp(175)::setCurrPhysicsAttributesHandle : Old physics manager attributes  changed to ./data/default.physics_config.json successfully.
+[12:45:36:420920]:[Metadata] MetadataMediator.cpp(66)::setSimulatorConfiguration : Set new simulator config for scene/stage : data/scene_datasets/Cantwell.glb and dataset : default which is currently active dataset.
+[12:45:36:433403]:[Metadata] AttributesManagerBase.h(380)::createFromJsonOrDefaultInternal : <Dataset>: Proposing JSON name : default.scene_dataset_config.json from original name : default| This file does not exist.
+[12:45:36:433624]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (capsule3DSolid:capsule3DSolid_hemiRings_4_cylRings_1_segments_12_halfLen_0.75_useTexCoords_false_useTangents_false) created and registered.
+[12:45:36:433696]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (capsule3DWireframe:capsule3DWireframe_hemiRings_8_cylRings_1_segments_16_halfLen_1) created and registered.
+[12:45:36:433764]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (coneSolid:coneSolid_segments_12_halfLen_1.25_rings_1_useTexCoords_false_useTangents_false_capEnd_true) created and registered.
+[12:45:36:433811]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (coneWireframe:coneWireframe_segments_32_halfLen_1.25) created and registered.
+[12:45:36:433855]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (cubeSolid:cubeSolid) created and registered.
+[12:45:36:433897]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (cubeWireframe:cubeWireframe) created and registered.
+[12:45:36:433942]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (cylinderSolid:cylinderSolid_rings_1_segments_12_halfLen_1_useTexCoords_false_useTangents_false_capEnds_true) created and registered.
+[12:45:36:433986]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (cylinderWireframe:cylinderWireframe_rings_1_segments_32_halfLen_1) created and registered.
+[12:45:36:434028]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (icosphereSolid:icosphereSolid_subdivs_1) created and registered.
+[12:45:36:434069]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (icosphereWireframe:icosphereWireframe_subdivs_1) created and registered.
+[12:45:36:434112]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (uvSphereSolid:uvSphereSolid_rings_8_segments_16_useTexCoords_false_useTangents_false) created and registered.
+[12:45:36:434153]:[Metadata] AssetAttributesManager.cpp(123)::createObject : Asset attributes (uvSphereWireframe:uvSphereWireframe_rings_16_segments_32) created and registered.
+[12:45:36:434189]:[Metadata] AssetAttributesManager.cpp(112)::AssetAttributesManager : Built default primitive asset templates : 12
+[12:45:36:434515]:[Metadata] SceneDatasetAttributesManager.cpp(37)::createObject : File (default) not found, so new default dataset attributes created  and registered.
+[12:45:36:434555]:[Metadata] MetadataMediator.cpp(120)::createSceneDataset : Dataset default successfully created.
+[12:45:36:434599]:[Metadata] AttributesManagerBase.h(380)::createFromJsonOrDefaultInternal : <Physics Manager>: Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json| This file does not exist.
+[12:45:36:434642]:[Metadata] PhysicsAttributesManager.cpp(26)::createObject : File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+[12:45:36:434676]:[Metadata] MetadataMediator.cpp(203)::setActiveSceneDatasetName : Previous active dataset  changed to default successfully.
+[12:45:36:434708]:[Metadata] MetadataMediator.cpp(175)::setCurrPhysicsAttributesHandle : Old physics manager attributes  changed to ./data/default.physics_config.json successfully.
+[12:45:36:434741]:[Metadata] MetadataMediator.cpp(66)::setSimulatorConfiguration : Set new simulator config for scene/stage : data/scene_datasets/Cantwell.glb and dataset : default which is currently active dataset.
+[12:45:36:494629]:[Metadata] MetadataMediator.cpp(297)::getSceneInstanceAttributesByName : Dataset : default has no preloaded SceneInstanceAttributes or StageAttributes named : data/scene_datasets/Cantwell.glb so loading/creating a new StageAttributes with this name, and then creating a SceneInstanceAttributes with the same name that references this stage.
+[12:45:36:494686]:[Metadata] MetadataMediator.cpp(297)::getSceneInstanceAttributesByName : Dataset : default has no preloaded SceneInstanceAttributes or StageAttributes named : data/scene_datasets/Cantwell.glb so loading/creating a new StageAttributes with this name, and then creating a SceneInstanceAttributes with the same name that references this stage.
+[12:45:36:494735]:[Metadata] AttributesManagerBase.h(380)::createFromJsonOrDefaultInternal : <Stage Template>: Proposing JSON name : data/scene_datasets/Cantwell.stage_config.json from original name : data/scene_datasets/Cantwell.glb| This file does not exist.
+[12:45:36:494779]:[Metadata] AttributesManagerBase.h(380)::createFromJsonOrDefaultInternal : <Stage Template>: Proposing JSON name : data/scene_datasets/Cantwell.stage_config.json from original name : data/scene_datasets/Cantwell.glb| This file does not exist.
+[12:45:36:494883]:[Metadata] AbstractObjectAttributesManagerBase.h(184)::createObject : File (data/scene_datasets/Cantwell.glb) exists but is not a recognized config filename extension, so new default Stage Template attributes created and registered.
+[12:45:36:494895]:[Metadata] AbstractObjectAttributesManagerBase.h(184)::createObject : File (data/scene_datasets/Cantwell.glb) exists but is not a recognized config filename extension, so new default Stage Template attributes created and registered.
+[12:45:36:494995]:[Metadata] SceneDatasetAttributes.cpp(47)::addNewSceneInstanceToDataset : Dataset : 'default' : Stage Attributes 'data/scene_datasets/Cantwell.glb' specified in Scene Attributes exists in dataset library.
+[12:45:36:494991]:[Metadata] SceneDatasetAttributes.cpp(47)::addNewSceneInstanceToDataset : Dataset : 'default' : Stage Attributes 'data/scene_datasets/Cantwell.glb' specified in Scene Attributes exists in dataset library.
+[12:45:36:495034]:[Metadata] SceneDatasetAttributes.cpp(84)::addNewSceneInstanceToDataset : Dataset : 'default' : Lighting Layout Attributes 'no_lights' specified in Scene Attributes but does not exist in dataset, so creating.
+[12:45:36:495045]:[Metadata] SceneDatasetAttributes.cpp(84)::addNewSceneInstanceToDataset : Dataset : 'default' : Lighting Layout Attributes 'no_lights' specified in Scene Attributes but does not exist in dataset, so creating.
+[12:45:36:495102]:[Metadata] AttributesManagerBase.h(380)::createFromJsonOrDefaultInternal : <Lighting Layout>: Proposing JSON name : no_lights.lighting_config.json from original name : no_lights| This file does not exist.
+[12:45:36:495103]:[Metadata] AttributesManagerBase.h(380)::createFromJsonOrDefaultInternal : <Lighting Layout>: Proposing JSON name : no_lights.lighting_config.json from original name : no_lights| This file does not exist.
+[12:45:36:495166]:[Metadata] LightLayoutAttributesManager.cpp(38)::createObject : File (no_lights) not found, so new default light layout attributes created and registered.
+[12:45:36:495167]:[Metadata] LightLayoutAttributesManager.cpp(38)::createObject : File (no_lights) not found, so new default light layout attributes created and registered.
+[12:45:36:495225]:[Sim] Simulator.cpp(240)::createSceneInstance : Navmesh file location in scene instance : 
+[12:45:36:495225]:[Sim] Simulator.cpp(240)::createSceneInstance : Navmesh file location in scene instance : 
+[12:45:36:495339]:[Scene] SceneGraph.h(85)::createDrawableGroup : Created DrawableGroup: 
+[12:45:36:495340]:[Scene] SceneGraph.h(85)::createDrawableGroup : Created DrawableGroup: 
+[12:45:36:495385]:[Assets] ResourceManager.cpp(308)::loadSemanticSceneDescriptor : SceneInstance : data/scene_datasets/Cantwell.glb proposed Semantic Scene Descriptor filename : data/scene_datasets/Cantwell.scn
+[12:45:36:495389]:[Assets] ResourceManager.cpp(308)::loadSemanticSceneDescriptor : SceneInstance : data/scene_datasets/Cantwell.glb proposed Semantic Scene Descriptor filename : data/scene_datasets/Cantwell.scn
+[12:45:36:495534]:[Assets] ResourceManager.cpp(1666)::configureImporterManagerGLExtensions : Importing Basis files as BC7.
+[12:45:36:495537]:[Assets] ResourceManager.cpp(1666)::configureImporterManagerGLExtensions : Importing Basis files as BC7.
+[12:45:36:497838]:[Sim] Simulator.cpp(305)::createSceneInstance : Using scene instance-specified Light key : - no_lights -
+[12:45:36:497963]:[Metadata] MetadataMediator.cpp(66)::setSimulatorConfiguration : Set new simulator config for scene/stage : data/scene_datasets/Cantwell.glb and dataset : default which is currently active dataset.
+[12:45:36:497911]:[Sim] Simulator.cpp(305)::createSceneInstance : Using scene instance-specified Light key : - no_lights -
+[12:45:36:498039]:[Metadata] MetadataMediator.cpp(66)::setSimulatorConfiguration : Set new simulator config for scene/stage : data/scene_datasets/Cantwell.glb and dataset : default which is currently active dataset.
+[12:45:36:498042]:[Sim] Simulator.cpp(415)::instanceStageForSceneAttributes : Start to load stage named : data/scene_datasets/Cantwell.glb with render asset : data/scene_datasets/Cantwell.glb and collision asset : data/scene_datasets/Cantwell.glb
+[12:45:36:498100]:[Sim] Simulator.cpp(415)::instanceStageForSceneAttributes : Start to load stage named : data/scene_datasets/Cantwell.glb with render asset : data/scene_datasets/Cantwell.glb and collision asset : data/scene_datasets/Cantwell.glb
+[12:45:36:498116]:[Assets] ResourceManager.cpp(702)::createStageAssetInfosFromAttributes : Frame :{"up":[0,0,1],"front":[0,1,0],"origin":[0,0,0]} for render mesh named : data/scene_datasets/Cantwell.glb|{"up":[0,0,1],"front":[0,1,0],"origin":[0,0,0]} for semantic mesh named :  with type specified as semantic|Semantic Txtrs : False
+[12:45:36:498161]:[Assets] ResourceManager.cpp(518)::loadStage : Start load render asset data/scene_datasets/Cantwell.glb .
+[12:45:36:498172]:[Assets] ResourceManager.cpp(702)::createStageAssetInfosFromAttributes : Frame :{"up":[0,0,1],"front":[0,1,0],"origin":[0,0,0]} for render mesh named : data/scene_datasets/Cantwell.glb|{"up":[0,0,1],"front":[0,1,0],"origin":[0,0,0]} for semantic mesh named :  with type specified as semantic|Semantic Txtrs : False
+[12:45:36:498196]:[Assets] ResourceManager.cpp(984)::loadStageInternal : Attempting to load stage data/scene_datasets/Cantwell.glb 
+[12:45:36:498219]:[Assets] ResourceManager.cpp(518)::loadStage : Start load render asset data/scene_datasets/Cantwell.glb .
+[12:45:36:498255]:[Assets] ResourceManager.cpp(866)::loadRenderAsset : Loading general asset named: data/scene_datasets/Cantwell.glb
+[12:45:36:498254]:[Assets] ResourceManager.cpp(984)::loadStageInternal : Attempting to load stage data/scene_datasets/Cantwell.glb 
+[12:45:36:498297]:[Assets] ResourceManager.cpp(1666)::configureImporterManagerGLExtensions : Importing Basis files as BC7.
+[12:45:36:498301]:[Assets] ResourceManager.cpp(866)::loadRenderAsset : Loading general asset named: data/scene_datasets/Cantwell.glb
+[12:45:36:498336]:[Assets] ResourceManager.cpp(1666)::configureImporterManagerGLExtensions : Importing Basis files as BC7.
+[12:45:36:500261]:[Metadata] MetadataMediator.cpp(297)::getSceneInstanceAttributesByName : Dataset : default has no preloaded SceneInstanceAttributes or StageAttributes named : data/scene_datasets/Cantwell.glb so loading/creating a new StageAttributes with this name, and then creating a SceneInstanceAttributes with the same name that references this stage.
+[12:45:36:500406]:[Metadata] AttributesManagerBase.h(380)::createFromJsonOrDefaultInternal : <Stage Template>: Proposing JSON name : data/scene_datasets/Cantwell.stage_config.json from original name : data/scene_datasets/Cantwell.glb| This file does not exist.
+[12:45:36:500499]:[Metadata] AbstractObjectAttributesManagerBase.h(184)::createObject : File (data/scene_datasets/Cantwell.glb) exists but is not a recognized config filename extension, so new default Stage Template attributes created and registered.
+[12:45:36:500583]:[Metadata] SceneDatasetAttributes.cpp(47)::addNewSceneInstanceToDataset : Dataset : 'default' : Stage Attributes 'data/scene_datasets/Cantwell.glb' specified in Scene Attributes exists in dataset library.
+[12:45:36:500617]:[Metadata] SceneDatasetAttributes.cpp(84)::addNewSceneInstanceToDataset : Dataset : 'default' : Lighting Layout Attributes 'no_lights' specified in Scene Attributes but does not exist in dataset, so creating.
+[12:45:36:500657]:[Metadata] AttributesManagerBase.h(380)::createFromJsonOrDefaultInternal : <Lighting Layout>: Proposing JSON name : no_lights.lighting_config.json from original name : no_lights| This file does not exist.
+[12:45:36:500704]:[Metadata] LightLayoutAttributesManager.cpp(38)::createObject : File (no_lights) not found, so new default light layout attributes created and registered.
+[12:45:36:500740]:[Sim] Simulator.cpp(240)::createSceneInstance : Navmesh file location in scene instance : 
+[12:45:36:500828]:[Scene] SceneGraph.h(85)::createDrawableGroup : Created DrawableGroup: 
+[12:45:36:500861]:[Assets] ResourceManager.cpp(308)::loadSemanticSceneDescriptor : SceneInstance : data/scene_datasets/Cantwell.glb proposed Semantic Scene Descriptor filename : data/scene_datasets/Cantwell.scn
+[12:45:36:500963]:[Assets] ResourceManager.cpp(1666)::configureImporterManagerGLExtensions : Importing Basis files as BC7.
+[12:45:36:501204]:[Sim] Simulator.cpp(305)::createSceneInstance : Using scene instance-specified Light key : - no_lights -
+[12:45:36:501269]:[Metadata] MetadataMediator.cpp(66)::setSimulatorConfiguration : Set new simulator config for scene/stage : data/scene_datasets/Cantwell.glb and dataset : default which is currently active dataset.
+[12:45:36:501329]:[Sim] Simulator.cpp(415)::instanceStageForSceneAttributes : Start to load stage named : data/scene_datasets/Cantwell.glb with render asset : data/scene_datasets/Cantwell.glb and collision asset : data/scene_datasets/Cantwell.glb
+[12:45:36:501410]:[Assets] ResourceManager.cpp(702)::createStageAssetInfosFromAttributes : Frame :{"up":[0,0,1],"front":[0,1,0],"origin":[0,0,0]} for render mesh named : data/scene_datasets/Cantwell.glb|{"up":[0,0,1],"front":[0,1,0],"origin":[0,0,0]} for semantic mesh named :  with type specified as semantic|Semantic Txtrs : False
+[12:45:36:501453]:[Assets] ResourceManager.cpp(518)::loadStage : Start load render asset data/scene_datasets/Cantwell.glb .
+[12:45:36:501487]:[Assets] ResourceManager.cpp(984)::loadStageInternal : Attempting to load stage data/scene_datasets/Cantwell.glb 
+[12:45:36:501528]:[Assets] ResourceManager.cpp(866)::loadRenderAsset : Loading general asset named: data/scene_datasets/Cantwell.glb
+[12:45:36:501565]:[Assets] ResourceManager.cpp(1666)::configureImporterManagerGLExtensions : Importing Basis files as BC7.
+[12:45:36:514460]:[Metadata] MetadataMediator.cpp(297)::getSceneInstanceAttributesByName : Dataset : default has no preloaded SceneInstanceAttributes or StageAttributes named : data/scene_datasets/Cantwell.glb so loading/creating a new StageAttributes with this name, and then creating a SceneInstanceAttributes with the same name that references this stage.
+[12:45:36:514644]:[Metadata] AttributesManagerBase.h(380)::createFromJsonOrDefaultInternal : <Stage Template>: Proposing JSON name : data/scene_datasets/Cantwell.stage_config.json from original name : data/scene_datasets/Cantwell.glb| This file does not exist.
+[12:45:36:514733]:[Metadata] AbstractObjectAttributesManagerBase.h(184)::createObject : File (data/scene_datasets/Cantwell.glb) exists but is not a recognized config filename extension, so new default Stage Template attributes created and registered.
+[12:45:36:514810]:[Metadata] SceneDatasetAttributes.cpp(47)::addNewSceneInstanceToDataset : Dataset : 'default' : Stage Attributes 'data/scene_datasets/Cantwell.glb' specified in Scene Attributes exists in dataset library.
+[12:45:36:514844]:[Metadata] SceneDatasetAttributes.cpp(84)::addNewSceneInstanceToDataset : Dataset : 'default' : Lighting Layout Attributes 'no_lights' specified in Scene Attributes but does not exist in dataset, so creating.
+[12:45:36:514883]:[Metadata] AttributesManagerBase.h(380)::createFromJsonOrDefaultInternal : <Lighting Layout>: Proposing JSON name : no_lights.lighting_config.json from original name : no_lights| This file does not exist.
+[12:45:36:514929]:[Metadata] LightLayoutAttributesManager.cpp(38)::createObject : File (no_lights) not found, so new default light layout attributes created and registered.
+[12:45:36:514964]:[Sim] Simulator.cpp(240)::createSceneInstance : Navmesh file location in scene instance : 
+[12:45:36:515073]:[Scene] SceneGraph.h(85)::createDrawableGroup : Created DrawableGroup: 
+[12:45:36:515106]:[Assets] ResourceManager.cpp(308)::loadSemanticSceneDescriptor : SceneInstance : data/scene_datasets/Cantwell.glb proposed Semantic Scene Descriptor filename : data/scene_datasets/Cantwell.scn
+[12:45:36:515213]:[Assets] ResourceManager.cpp(1666)::configureImporterManagerGLExtensions : Importing Basis files as BC7.
+[12:45:36:515465]:[Sim] Simulator.cpp(305)::createSceneInstance : Using scene instance-specified Light key : - no_lights -
+[12:45:36:515514]:[Metadata] MetadataMediator.cpp(66)::setSimulatorConfiguration : Set new simulator config for scene/stage : data/scene_datasets/Cantwell.glb and dataset : default which is currently active dataset.
+[12:45:36:515567]:[Sim] Simulator.cpp(415)::instanceStageForSceneAttributes : Start to load stage named : data/scene_datasets/Cantwell.glb with render asset : data/scene_datasets/Cantwell.glb and collision asset : data/scene_datasets/Cantwell.glb
+[12:45:36:515638]:[Assets] ResourceManager.cpp(702)::createStageAssetInfosFromAttributes : Frame :{"up":[0,0,1],"front":[0,1,0],"origin":[0,0,0]} for render mesh named : data/scene_datasets/Cantwell.glb|{"up":[0,0,1],"front":[0,1,0],"origin":[0,0,0]} for semantic mesh named :  with type specified as semantic|Semantic Txtrs : False
+[12:45:36:515675]:[Assets] ResourceManager.cpp(518)::loadStage : Start load render asset data/scene_datasets/Cantwell.glb .
+[12:45:36:515706]:[Assets] ResourceManager.cpp(984)::loadStageInternal : Attempting to load stage data/scene_datasets/Cantwell.glb 
+[12:45:36:515742]:[Assets] ResourceManager.cpp(866)::loadRenderAsset : Loading general asset named: data/scene_datasets/Cantwell.glb
+[12:45:36:515774]:[Assets] ResourceManager.cpp(1666)::configureImporterManagerGLExtensions : Importing Basis files as BC7.
+[12:45:39:795420]:[Assets] ResourceManager.cpp(2105)::loadMaterials : Building 2 materials for asset named 'Cantwell.glb' : 
+[12:45:39:795563]:[Assets] ResourceManager.cpp(2210)::loadMaterials : Idx 00:Flat.
+[12:45:39:795623]:[Assets] ResourceManager.cpp(2210)::loadMaterials : Idx 01:Flat.
+[12:45:39:821640]:[Sim] Simulator.cpp(442)::instanceStageForSceneAttributes : Successfully loaded stage named : data/scene_datasets/Cantwell.glb
+[12:45:39:821908]:[Sim] Simulator.cpp(208)::reconfigure : CreateSceneInstance success == true for active scene name : data/scene_datasets/Cantwell.glb  with renderer.
+[12:45:39:823694]:[Assets] ResourceManager.cpp(2105)::loadMaterials : Building 2 materials for asset named 'Cantwell.glb' : 
+[12:45:39:823816]:[Assets] ResourceManager.cpp(2210)::loadMaterials : Idx 00:Flat.
+[12:45:39:823879]:[Assets] ResourceManager.cpp(2210)::loadMaterials : Idx 01:Flat.
+[12:45:39:826582]:[Assets] ResourceManager.cpp(2105)::loadMaterials : Building 2 materials for asset named 'Cantwell.glb' : 
+[12:45:39:826697]:[Assets] ResourceManager.cpp(2210)::loadMaterials : Idx 00:Flat.
+[12:45:39:826762]:[Assets] ResourceManager.cpp(2210)::loadMaterials : Idx 01:Flat.
+[12:45:39:836303]:[Nav] PathFinder.cpp(568)::build : Building navmesh with 306 x 145 cells
+[12:45:39:854757]:[Sim] Simulator.cpp(442)::instanceStageForSceneAttributes : Successfully loaded stage named : data/scene_datasets/Cantwell.glb
+[12:45:39:854953]:[Sim] Simulator.cpp(208)::reconfigure : CreateSceneInstance success == true for active scene name : data/scene_datasets/Cantwell.glb  with renderer.
+[12:45:39:855287]:[Sim] Simulator.cpp(442)::instanceStageForSceneAttributes : Successfully loaded stage named : data/scene_datasets/Cantwell.glb
+[12:45:39:855494]:[Sim] Simulator.cpp(208)::reconfigure : CreateSceneInstance success == true for active scene name : data/scene_datasets/Cantwell.glb  with renderer.
+[12:45:39:855767]:[Assets] ResourceManager.cpp(2105)::loadMaterials : Building 2 materials for asset named 'Cantwell.glb' : 
+[12:45:39:855870]:[Assets] ResourceManager.cpp(2210)::loadMaterials : Idx 00:Flat.
+[12:45:39:855923]:[Assets] ResourceManager.cpp(2210)::loadMaterials : Idx 01:Flat.
+[12:45:39:868438]:[Nav] PathFinder.cpp(568)::build : Building navmesh with 306 x 145 cells
+[12:45:39:869088]:[Nav] PathFinder.cpp(568)::build : Building navmesh with 306 x 145 cells
+[12:45:39:880226]:[Sim] Simulator.cpp(442)::instanceStageForSceneAttributes : Successfully loaded stage named : data/scene_datasets/Cantwell.glb
+[12:45:39:880462]:[Sim] Simulator.cpp(208)::reconfigure : CreateSceneInstance success == true for active scene name : data/scene_datasets/Cantwell.glb  with renderer.
+[12:45:39:893689]:[Nav] PathFinder.cpp(568)::build : Building navmesh with 306 x 145 cells
+[12:45:39:926808]:[Nav] PathFinder.cpp(842)::build : Created navmesh with 237 vertices 111 polygons
+[12:45:39:926968]:[Sim] Simulator.cpp(898)::recomputeNavMesh : reconstruct navmesh successful
+>>>>>>>>> RESULT2 :  Dict(compass:Box(-3.1415927, 3.1415927, (1,), float32), depth:Box(0.0, 1.0, (480, 640, 1), float32), gps:Box(-3.4028235e+38, 3.4028235e+38, (2,), float32), objectgoal:Box(0, 0, (1,), int64), rgb:Box(0, 255, (480, 640, 3), uint8))
+[12:45:39:956760]:[Nav] PathFinder.cpp(842)::build : Created navmesh with 237 vertices 111 polygons
+[12:45:39:956871]:[Sim] Simulator.cpp(898)::recomputeNavMesh : reconstruct navmesh successful
+[12:45:39:957654]:[Nav] PathFinder.cpp(842)::build : Created navmesh with 237 vertices 111 polygons
+[12:45:39:957804]:[Sim] Simulator.cpp(898)::recomputeNavMesh : reconstruct navmesh successful
+>>>>>>>>> RESULT2 :  Dict(compass:Box(-3.1415927, 3.1415927, (1,), float32), depth:Box(0.0, 1.0, (480, 640, 1), float32), gps:Box(-3.4028235e+38, 3.4028235e+38, (2,), float32), objectgoal:Box(0, 0, (1,), int64), rgb:Box(0, 255, (480, 640, 3), uint8))
+>>>>>>>>> RESULT2 :  Dict(compass:Box(-3.1415927, 3.1415927, (1,), float32), depth:Box(0.0, 1.0, (480, 640, 1), float32), gps:Box(-3.4028235e+38, 3.4028235e+38, (2,), float32), objectgoal:Box(0, 0, (1,), int64), rgb:Box(0, 255, (480, 640, 3), uint8))
+[12:45:39:981773]:[Nav] PathFinder.cpp(842)::build : Created navmesh with 237 vertices 111 polygons
+[12:45:39:981952]:[Sim] Simulator.cpp(898)::recomputeNavMesh : reconstruct navmesh successful
+>>>>>>>>> RESULT2 :  Dict(compass:Box(-3.1415927, 3.1415927, (1,), float32), depth:Box(0.0, 1.0, (480, 640, 1), float32), gps:Box(-3.4028235e+38, 3.4028235e+38, (2,), float32), objectgoal:Box(0, 0, (1,), int64), rgb:Box(0, 255, (480, 640, 3), uint8))
+>>>>>>>>> RESULT2 :  Discrete(6)
+>>>>>>>>> RESULT2 :  Discrete(6)
+>>>>>>>>> RESULT2 :  Discrete(6)
+>>>>>>>>> RESULT2 :  Discrete(6)
+>>>>>>>>> RESULT2 :  Dict(look_down:EmptySpace(), look_up:EmptySpace(), move_forward:EmptySpace(), stop:EmptySpace(), turn_left:EmptySpace(), turn_right:EmptySpace())
+>>>>>>>>> RESULT2 :  Dict(look_down:EmptySpace(), look_up:EmptySpace(), move_forward:EmptySpace(), stop:EmptySpace(), turn_left:EmptySpace(), turn_right:EmptySpace())
+>>>>>>>>> RESULT2 :  Dict(look_down:EmptySpace(), look_up:EmptySpace(), move_forward:EmptySpace(), stop:EmptySpace(), turn_left:EmptySpace(), turn_right:EmptySpace())
+>>>>>>>>> RESULT2 :  Dict(look_down:EmptySpace(), look_up:EmptySpace(), move_forward:EmptySpace(), stop:EmptySpace(), turn_left:EmptySpace(), turn_right:EmptySpace())
+>>>>>>>>> RESULT2 :  1000
+>>>>>>>>> RESULT2 :  1000
+>>>>>>>>> RESULT2 :  1000
+>>>>>>>>> RESULT2 :  1000
+>>>>>>>>> RESULT :  []
+>>>>>> read_fn :  _ReadWrapper(read_fn=<bound method ConnectionWrapper.recv of <habitat.utils.pickle5_multiprocessing.ConnectionWrapper object at 0x7fb434423820>>, rank=0, is_waiting=True)
+[12:45:41:064735]:[Physics] PhysicsManager.cpp(54)::~PhysicsManager : Deconstructing PhysicsManager
+[12:45:41:064724]:[Physics] PhysicsManager.cpp(54)::~PhysicsManager : Deconstructing PhysicsManager
+[12:45:41:064727]:[Physics] PhysicsManager.cpp(54)::~PhysicsManager : Deconstructing PhysicsManager
+[12:45:41:064761]:[Physics] PhysicsManager.cpp(54)::~PhysicsManager : Deconstructing PhysicsManager
+[12:45:41:064881]:[Scene] SceneManager.h(24)::~SceneManager : Deconstructing SceneManager
+[12:45:41:064930]:[Scene] SceneGraph.h(25)::~SceneGraph : Deconstructing SceneGraph
+[12:45:41:064925]:[Scene] SceneManager.h(24)::~SceneManager : Deconstructing SceneManager
+[12:45:41:064944]:[Scene] SceneManager.h(24)::~SceneManager : Deconstructing SceneManager
+[12:45:41:064990]:[Scene] SceneGraph.h(25)::~SceneGraph : Deconstructing SceneGraph
+[12:45:41:064881]:[Scene] SceneManager.h(24)::~SceneManager : Deconstructing SceneManager
+[12:45:41:065015]:[Scene] SceneGraph.h(25)::~SceneGraph : Deconstructing SceneGraph
+[12:45:41:065056]:[Scene] SceneGraph.h(25)::~SceneGraph : Deconstructing SceneGraph
+[12:45:41:065780]:[Sensor] Sensor.cpp(69)::~Sensor : Deconstructing Sensor
+[12:45:41:065869]:[Sensor] Sensor.cpp(69)::~Sensor : Deconstructing Sensor
+[12:45:41:065886]:[Sensor] Sensor.cpp(69)::~Sensor : Deconstructing Sensor
+[12:45:41:065911]:[Sensor] Sensor.cpp(69)::~Sensor : Deconstructing Sensor
+[12:45:41:065936]:[Sensor] Sensor.cpp(69)::~Sensor : Deconstructing Sensor
+[12:45:41:065942]:[Scene] SemanticScene.h(48)::~SemanticScene : Deconstructing SemanticScene
+[12:45:41:065973]:[Sensor] Sensor.cpp(69)::~Sensor : Deconstructing Sensor
+[12:45:41:065993]:[Sensor] Sensor.cpp(69)::~Sensor : Deconstructing Sensor
+[12:45:41:066028]:[Sensor] Sensor.cpp(69)::~Sensor : Deconstructing Sensor
+[12:45:41:066058]:[Scene] SemanticScene.h(48)::~SemanticScene : Deconstructing SemanticScene
+[12:45:41:066065]:[Scene] SemanticScene.h(48)::~SemanticScene : Deconstructing SemanticScene
+[12:45:41:066090]:[Scene] SemanticScene.h(48)::~SemanticScene : Deconstructing SemanticScene

@@ -1,0 +1,31 @@
+# configs/objectnav/ddppo_ball.yaml
+
+defaults:
+  - _self_
+  - objectnav/ddppo_objectnav
+
+BASE_TASK: tasks.ball_objectnav_task.BallObjectNavTask
+
+DATA:
+  SCENES_DIR: "data/scene_datasets/cantwell"
+  DATASET:
+    TYPE:      "ObjectNav-v1"
+    SPLIT:     "train"
+    DATA_PATH: "data/scene_datasets/cantwell/ball_episodes.json.gz"
+
+SIMULATOR:
+  FORWARD_STEP_SIZE: 0.25
+  TURN_ANGLE:        10.0
+
+  AGENT_0:
+    # On ne garde que la caméra RGB
+    SENSORS: ["RGB_SENSOR"]
+
+TASK:
+  OBJECT_CATEGORIES: ["ball"]
+  SUCCESS_DISTANCE:  0.3
+
+TRAINER:
+  NUM_PROCESSES: 1 
+  WB:
+    RUN_ID: "ball_nav_run_01"
