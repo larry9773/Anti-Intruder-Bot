@@ -140,7 +140,7 @@ class PolicyController(Node):
     def preprocess_image(self, frame: np.ndarray) -> np.ndarray:
         img = cv2.resize(frame, TARGET_IMG_SIZE, interpolation=cv2.INTER_LINEAR)
         img = img.astype(np.float32) / 255.0
-        img = np.transpose(img, (2, 0, 1))  # C,H,W
+        #img = np.transpose(img, (2, 0, 1))  # C,H,W
         return img
 
     def decide_and_send(self):
