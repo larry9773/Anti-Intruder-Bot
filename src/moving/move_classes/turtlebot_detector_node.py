@@ -30,7 +30,7 @@ class DetectorNode(Node):
 
         # Parameters you might want to expose on the ROS param server
         self.declare_parameter("camera_topic",
-                               "/camera/color/image_raw")  # TB4 default RGB topic
+                               "/oakd/rgb/preview/image_raw")  # TB4 default RGB topic
         self.declare_parameter("human_conf_thresh", 0.50)
         self.declare_parameter("ball_conf_thresh", 0.50)
         self.declare_parameter("ball_min_radius", 10)
