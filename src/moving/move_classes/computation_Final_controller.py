@@ -5,11 +5,14 @@ Entraîné dans BallFinderEnv.
 """
 import rclpy
 from rclpy.node import Node
-from sensor_msgs.msg import Image          # flux caméra
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy
+from sensor_msgs.msg import Image, Imu, LaserScan
 from std_msgs.msg import String            # ordres haut niveau
 from cv_bridge import CvBridge
 import numpy as np
 from stable_baselines3 import PPO
+import cv2
+from tf_transformations import quaternion_matrix
 
 # ------------------------------------------------------------
 # Quelques hyper-paramètres qu’il faudra peut-être ajuster :
@@ -17,6 +20,9 @@ MODEL_PATH      = "/absolute/path/to/models/ppo_ball_finder.zip"
 IMAGE_TOPIC     = "/oakd/rgb/preview/image_raw"      # topic caméra du Create 3
 TARGET_IMG_SIZE = (720, 1280)                       # tailles utilisées au training
 DEVICE          = "cuda"                          # ou "cuda" si vous avez un GPU
+IMU_TOPIC       = "/imu"
+LIDAR_TOPIC     = "/scan"
+GRAVITY         = np.array([0.0, 0.0, 9.80665], dtype=np.float32)
 # ------------------------------------------------------------
 
 class PolicyController(Node):
@@ -32,14 +38,32 @@ class PolicyController(Node):
         self.sub_done = self.create_subscription(
             String, "action_done", self.cb_action_done, 10
         )
+
+        qos = QoSProfile(
+        reliability=QoSReliabilityPolicy.BEST_EFFORT,
+        history=QoSHistoryPolicy.KEEP_LAST,
+        depth=1)
+
         self.sub_img  = self.create_subscription(
-            Image, IMAGE_TOPIC, self.cb_image, 10
+            Image, IMAGE_TOPIC, self.cb_image, qos_profile=qos
         )
+
+        self.sub_imu   = self.create_subscription(Imu,   IMU_TOPIC,   self.cb_imu,   qos_profile=qos)
+        self.sub_lidar = self.create_subscription(LaserScan, LIDAR_TOPIC, self.cb_lidar, qos_profile=qos)
 
         # 3) État interne
         self.bridge         = CvBridge()
         self.last_obs       = None          # observation la plus récente
         self.action_pending = False         # en attente d’un retour action_done
+
+        self.last_lidar = None
+        self.last_position = None
+        self.last_image = None
+
+        self.last_position     = np.zeros(3, dtype=np.float32)
+        self.last_velocity = np.zeros(3, dtype=np.float32)
+        self.last_imu_time = None
+        self.action_pending = False
 
         # 4) Send an undock first so the robot is free to move
         self.send_command("undock")
@@ -47,16 +71,62 @@ class PolicyController(Node):
     # =================================================================
     # callback : nouvelle image
     def cb_image(self, msg: Image):
-        # Convertit ROS Image → np.ndarray (BGR)
         frame = self.bridge.imgmsg_to_cv2(msg, desired_encoding="bgr8")
+        img = self.preprocess_image(frame)
+        self.last_image = img
+        self.update_last_obs()
+        self.try_decide()
 
-        # Pré-processing identique au training
-        obs = self.preprocess(frame)
-        self.last_obs = {"image": obs}  # BallFinderEnv expose probablement un dict
+    def cb_imu(self, msg: Imu):
+        # Calculate dt
+        stamp = msg.header.stamp.sec + msg.header.stamp.nanosec * 1e-9
+        if self.last_imu_time is None:
+            self.last_imu_time = stamp
+            return
+        dt = stamp - self.last_imu_time
+        self.last_imu_time = stamp
 
-        # Si aucune action n’est en cours, on peut décider la suivante
-        if not self.action_pending:
+        # Rotate acceleration to world frame and remove gravity
+        acc_body = np.array([msg.linear_acceleration.x,
+                              msg.linear_acceleration.y,
+                              msg.linear_acceleration.z], dtype=np.float32)
+        # quaternion -> rotation matrix
+        q = msg.orientation
+        rot = quaternion_matrix([q.x, q.y, q.z, q.w])[:3, :3]
+        acc_world = rot.dot(acc_body) - GRAVITY
+
+        # Update velocity and position via integration
+        self.last_velocity += acc_world * dt
+        self.last_position     += self.last_velocity * dt
+        self.update_last_obs()
+        self.try_decide()
+
+    def cb_lidar(self, msg: LaserScan):
+        # On récupère les distances mesurées
+        # On tronque ou sous-échantillonne à la taille fixe
+        ranges = np.array(msg.ranges, dtype=np.float32)
+        # Exemple : tronquer à 360 valeurs, uniformément
+        if ranges.size > 360:
+            idx = np.linspace(0, ranges.size-1, 360).astype(int)
+            ranges = ranges[idx]
+        self.last_lidar = ranges
+        self.update_last_obs()
+        self.try_decide()
+
+    def try_decide(self):
+        # Décider seulement quand tous les capteurs ont fourni des données
+        if not self.action_pending and \
+           (self.last_image is not None) and \
+           (self.last_position   is not None) and \
+           (self.last_lidar is not None):
             self.decide_and_send()
+
+    def update_last_obs(self):
+        self.last_obs = {
+            "rgb": self.last_image,
+            "lidar": self.last_lidar,
+            "imu": self.last_position
+        }
 
     # callback : action terminée
     def cb_action_done(self, _msg: String):
@@ -67,12 +137,10 @@ class PolicyController(Node):
 
     # =================================================================
     # fonctions utilitaires
-    def preprocess(self, frame: np.ndarray) -> np.ndarray:
-        """Resize + normalise exactement comme dans BallFinderEnv"""
-        import cv2
+    def preprocess_image(self, frame: np.ndarray) -> np.ndarray:
         img = cv2.resize(frame, TARGET_IMG_SIZE, interpolation=cv2.INTER_LINEAR)
-        img = img.astype(np.float32) / 255.0          # [0, 1]
-        img = np.transpose(img, (2, 0, 1))            # C × H × W
+        img = img.astype(np.float32) / 255.0
+        img = np.transpose(img, (2, 0, 1))  # C,H,W
         return img
 
     def decide_and_send(self):
@@ -81,6 +149,7 @@ class PolicyController(Node):
         cmd_str = self.id_to_command(action_id)
         self.send_command(cmd_str)
 
+    
     def send_command(self, cmd_str: str):
         self.get_logger().info(f"→ envoi : {cmd_str}")
         msg = String();  msg.data = cmd_str
