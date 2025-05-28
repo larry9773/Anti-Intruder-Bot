@@ -63,7 +63,6 @@ class PolicyController(Node):
         self.last_position     = np.zeros(3, dtype=np.float32)
         self.last_velocity = np.zeros(3, dtype=np.float32)
         self.last_imu_time = None
-        self.action_pending = False
 
         # 4) Send an undock first so the robot is free to move
         self.send_command("undock")
@@ -75,7 +74,7 @@ class PolicyController(Node):
         img = self.preprocess_image(frame)
         self.last_image = img
         self.update_last_obs()
-        self.try_decide()
+        #self.try_decide()
 
     def cb_imu(self, msg: Imu):
         # Calculate dt
@@ -99,7 +98,7 @@ class PolicyController(Node):
         self.last_velocity += acc_world * dt
         self.last_position     += self.last_velocity * dt
         self.update_last_obs()
-        self.try_decide()
+        #self.try_decide()
 
     def cb_lidar(self, msg: LaserScan):
         # On récupère les distances mesurées
@@ -111,7 +110,7 @@ class PolicyController(Node):
             ranges = ranges[idx]
         self.last_lidar = ranges
         self.update_last_obs()
-        self.try_decide()
+        #self.try_decide()
 
     def try_decide(self):
         # Décider seulement quand tous les capteurs ont fourni des données
@@ -132,8 +131,9 @@ class PolicyController(Node):
     def cb_action_done(self, _msg: String):
         self.action_pending = False
         # Dès qu’on reçoit le DONE, on décide à nouveau
-        if self.last_obs is not None:
-            self.decide_and_send()
+        '''if self.last_obs is not None:
+            self.decide_and_send()'''
+        self.try_decide()
 
     # =================================================================
     # fonctions utilitaires
