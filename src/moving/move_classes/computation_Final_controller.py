@@ -14,9 +14,9 @@ from stable_baselines3 import PPO
 # ------------------------------------------------------------
 # Quelques hyper-paramètres qu’il faudra peut-être ajuster :
 MODEL_PATH      = "/absolute/path/to/models/ppo_ball_finder.zip"
-IMAGE_TOPIC     = "/camera/color/image_raw"      # topic caméra du Create 3
-TARGET_IMG_SIZE = (84, 84)                       # tailles utilisées au training
-DEVICE          = "cpu"                          # ou "cuda" si vous avez un GPU
+IMAGE_TOPIC     = "/oakd/rgb/preview/image_raw"      # topic caméra du Create 3
+TARGET_IMG_SIZE = (720, 1280)                       # tailles utilisées au training
+DEVICE          = "cuda"                          # ou "cuda" si vous avez un GPU
 # ------------------------------------------------------------
 
 class PolicyController(Node):
@@ -97,11 +97,11 @@ class PolicyController(Node):
         2 : tourner gauche (+90°)  
         3 : tourner droite(-90°)   
         """
-        lookup = {0: "drive_short",
-                  1: "drive_long",
+        lookup = {0: "move_forward",
+                  1: "move_backward",
                   2: "rotate_left",
                   3: "rotate_right"}
-        return lookup.get(a, "drive_short")  # par défaut on avance
+        return lookup.get(a, "move_forward")  # par défaut on avance
 
 # =======================================================================
 def main(args=None):
