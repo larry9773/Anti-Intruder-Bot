@@ -46,7 +46,7 @@ class MoveController(Node):
     def call_undock_action(self):
         self.undock_client = ActionClient(self, Undock, 'undock')
         self.get_logger().info("Attente du serveur d'action Undock...")
-        if not self.undock_client.wait_for_server(timeout_sec=5.0):
+        if not self.undock_client.wait_for_server(timeout_sec=30.0):
             self.get_logger().error("Undock indisponible !")
             self.action_in_progress = False
             return
