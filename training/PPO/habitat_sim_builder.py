@@ -33,9 +33,10 @@ class HabitatSimBuilder():
         sim_cfg.gpu_device_id = 0
         sim_cfg.scene_id = settings["scene"]
         sim_cfg.enable_physics = settings["enable_physics"]
+        #sim_cfg.gpu_device_id = 0
         
         sensor_settings = {
-            "height": 1080, "width": 1920,  # Spatial resolution of observations
+            "height": 256, "width": 256,  # Spatial resolution of observations
             "sensor_height": 0.15,  # Height of sensors in meters, relative to the agent
         }
 
@@ -253,12 +254,12 @@ class HabitatSimBuilder():
         return pf.get_random_navigable_point()
     
 
-    def is_ball_detected(self, sem_obs: np.ndarray, min_pixel_count: int = 1) -> bool:
-        """
-        Renvoie True si la semantic observation contient au moins `min_pixel_count`
-        pixels avec l’ID 1 (la balle).
-        """
+    def is_ball_detected(self, sem_obs: np.ndarray, min_pixel_count: int = 10) -> bool:
         # sem_obs est de shape (H, W) avec des entiers 0,1,...
         count = int((sem_obs == 1).sum())
         return count >= min_pixel_count
     
+    def number_of_pixels_ball_in_camera(self, sem_obs: np.ndarray) -> bool:
+        # sem_obs est de shape (H, W) avec des entiers 0,1,...
+        count = int((sem_obs == 1).sum())
+        return count
