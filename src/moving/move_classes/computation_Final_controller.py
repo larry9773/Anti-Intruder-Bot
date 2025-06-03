@@ -184,7 +184,9 @@ class PolicyController(Node):
 
     def decide_and_send(self):
         """Appelle le modèle et publie la commande """
-        self.get_logger().info("last obs = ", self.last_obs)
+        # rclpy logging n'accepte qu'une chaîne de caractères ; on formate
+        # donc explicitement l'observation dans le message.
+        self.get_logger().info(f"last obs = {self.last_obs}")
         action_id, _ = self.model.predict(self.last_obs, deterministic=True)
         cmd_str = self.id_to_command(action_id)
         self.send_command(cmd_str)
