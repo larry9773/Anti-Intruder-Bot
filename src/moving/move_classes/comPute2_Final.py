@@ -13,6 +13,8 @@ from irobot_create_msgs.action import Undock
 from rclpy.action import ActionClient
 from turtlebot_detector_node import DetectorNode
 from std_msgs.msg import String
+import time
+from cv_bridge import CvBridge, CvBridgeError
 
 # ------------------------------------------------------------
 # Hyper-paramètres
@@ -76,6 +78,7 @@ class Computation2Controller(Node):
         undock_msg.data = 'undock'
         self.pub_cmd.publish(undock_msg)'''
         self.send_command("undock")
+        self.frame = None
     
     def undock_robot(self):
     # Envoie la requête d'undock via action
@@ -101,6 +104,7 @@ class Computation2Controller(Node):
 
     def cb_image(self, msg: Image):
         frame = self.bridge.imgmsg_to_cv2(msg, desired_encoding="bgr8")
+        self.frame = frame
         img = cv2.resize(frame, TARGET_IMG_SIZE, interpolation=cv2.INTER_LINEAR)
         img = img.astype(np.float32) / 255.0
         self.last_image = img
@@ -156,12 +160,60 @@ class Computation2Controller(Node):
             }
 
     def try_decide(self):
-        if self.last_obs is None or self.undocking:
+        if self.last_obs is None or self.undocking or self.last_image is None or self.last_lidar is None or self.last_position is None:
             return
-
-        results = self.detector_node.detector.detect(self.last_image)
+        '''try:
+            frame = self.bridge.imgmsg_to_cv2(self.last_image, desired_encoding="bgr8")
+        except CvBridgeError as e:
+            self.get_logger().error(f"cv_bridge error: {e}")
+            return'''
+        results = self.detector_node.detector.detect(self.frame)
         balls = results.get("balls", [])
-        if balls:
+        humans = results.get("humans", [])
+        report_lines = []
+
+
+        # ---------- humans ----------
+        if not humans:
+            report_lines.append("❌  No human")
+        else:
+            best = max(humans, key=lambda d: d["confidence"])
+            report_lines.append(
+                f"✅  Human {best['position']} / "
+                f"{best['distance']} / "
+                f"{best['confidence']:.2f}"
+            )
+
+        # ---------- balls -----------
+        time.sleep(2)
+        if not balls:
+            report_lines.append("⭕  No red ball")
+            action_id, _ = self.model.predict(self.last_obs, deterministic=True)
+            cmd = {0: "move_forward", 1: "move_backward", 2: "rotate_left", 3: "rotate_right"} \
+                  .get(int(action_id), "move_forward")
+            self.send_cmd_vel(cmd)
+        else:
+            best = max(balls, key=lambda d: d["confidence"])
+            report_lines.append(
+                f"🔴  Ball {best['position']} / "
+                f"{best['distance']} / "
+                f"{best['confidence']:.2f}"
+            )
+            best = max(balls, key=lambda b: b["confidence"])
+            pos = best["position"]
+            self.get_logger().info(f"Balle détectée à {pos} (conf {best['confidence']:.2f})")
+            if pos == "left":
+                cmd = "rotate_left"
+            elif pos == "right":
+                cmd = "rotate_right"
+            else:
+                cmd = "move_forward"
+
+            self.send_vel1(cmd)
+            
+
+        self.get_logger().info(" | ".join(report_lines))
+        '''if balls:
             best = max(balls, key=lambda b: b["confidence"])
             pos = best["position"]
             self.get_logger().info(f"Balle détectée à {pos} (conf {best['confidence']:.2f})")
@@ -174,12 +226,13 @@ class Computation2Controller(Node):
         else:
             action_id, _ = self.model.predict(self.last_obs, deterministic=True)
             cmd = {0: "move_forward", 1: "move_backward", 2: "rotate_left", 3: "rotate_right"} \
-                  .get(int(action_id), "move_forward")
-        self.send_cmd_vel(cmd)
+                  .get(int(action_id), "move_forward")'''
+        #self.send_cmd_vel(cmd)
 
     # ----------------- Envoi de cmd_vel -----------------
 
     def send_cmd_vel(self, cmd_str: str):
+        self.get_logger().info("envoi commande !")
         twist = Twist()
         # Ajustez les vitesses linéaire/angulaire selon vos besoins
         if cmd_str == "move_forward":
@@ -190,6 +243,24 @@ class Computation2Controller(Node):
             twist.angular.z = 0.5
         elif cmd_str == "rotate_right":
             twist.angular.z = -0.5
+        # Sinon, twist reste à zéro (arrêt)
+
+        self.pub_cmdvel.publish(twist)
+        self.get_logger().info(f"Published cmd_vel → linear: {twist.linear.x:.2f}, angular: {twist.angular.z:.2f}")
+
+    
+    def send_vel1(self, cmd_str: str):
+        self.get_logger().info("envoi commande !")
+        twist = Twist()
+        # Ajustez les vitesses linéaire/angulaire selon vos besoins
+        if cmd_str == "move_forward":
+            twist.linear.x = 0.2
+        elif cmd_str == "move_backward":
+            twist.linear.x = -0.2
+        elif cmd_str == "rotate_left":
+            twist.angular.z = 0.125
+        elif cmd_str == "rotate_right":
+            twist.angular.z = -0.125
         # Sinon, twist reste à zéro (arrêt)
 
         self.pub_cmdvel.publish(twist)

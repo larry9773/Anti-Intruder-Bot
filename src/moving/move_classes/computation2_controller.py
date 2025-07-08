@@ -2,108 +2,78 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
-from sensor_msgs.msg import Image, LaserScan
-from nav_msgs.msg import Odometry
-from cv_bridge import CvBridge
-import numpy as np
-import cv2
-from stable_baselines3 import PPO
 
-class Computation2Controller(Node):
-    """
-    ROS2 node that runs a trained PPO policy to find a red ball.
-    Publishes high-level commands ('undock', 'move_forward', 'move_backward',
-    'rotate_left', 'rotate_right') to 'robot_action', listens to 'action_done'.
-    Uses camera, lidar, and odometry to build observations.
-    """
+class ComputationController(Node):
     def __init__(self):
-        super().__init__('computation2_controller')
-        # Load trained model (ensure the path matches your setup)
-        self.model = PPO.load('/path/to/ball_nav/models/ball_finder')
-        # ROS interfaces
-        self.pub_action = self.create_publisher(String, 'robot_action', 10)
-        self.sub_done   = self.create_subscription(
-            String, 'action_done', self.action_done_callback, 10
-        )
-        self.sub_image  = self.create_subscription(
-            Image, '/camera/color/image_raw', self.image_cb, 10
-        )
-        self.sub_scan   = self.create_subscription(
-            LaserScan, '/scan', self.scan_cb, 10
-        )
-        self.sub_odom   = self.create_subscription(
-            Odometry, '/odom', self.odom_cb, 10
-        )
-        # State
-        self.bridge = CvBridge()
-        self.rgb = None
-        self.lidar = None
-        self.odom = None
-        self.undocked = False
-        self.action_in_progress = False
-
-        # Send undock at startup
-        self.create_timer(1.0, self.send_undock)
-        self.get_logger().info('Computation2Controller started')
+        super().__init__('computation_controller')
+        self.publisher = self.create_publisher(String, 'robot_action', 10)
+        self.subscription = self.create_subscription(
+            String,
+            'action_done',
+            self.action_done_callback,
+            10)
+        self.undock_sent = False
+        self.sequence = []  # Séquence des commandes pour dessiner un rectangle
+        self.seq_index = 0
+        self.current_lap = 0
+        self.total_laps = 3  # Nombre de tours complets
+        self.undock_timer = self.create_timer(2.0, self.send_undock)
 
     def send_undock(self):
-        if not self.undocked:
-            msg = String(); msg.data = 'undock'
-            self.pub_action.publish(msg)
-            self.get_logger().info('Sent: undock')
-            self.undocked = True
+        if not self.undock_sent:
+            msg = String()
+            msg.data = "undock"
+            self.publisher.publish(msg)
+            self.get_logger().info("Envoyé : undock")
+            self.undock_sent = True
+            self.undock_timer.cancel()
 
-    def image_cb(self, msg: Image):
-        img = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
-        # Resize to match training resolution: 720x1280 (height x width)
-        self.rgb = cv2.resize(img, (1280, 720))
+    def action_done_callback(self, msg):
+        self.get_logger().info(f"Action terminée : {msg.data}")
+        # Après l'undock, on initialise la séquence du rectangle
+        if msg.data == "undock_done" and not self.sequence:
+            self.init_rectangle_sequence()
 
-    def scan_cb(self, msg: LaserScan):
-        arr = np.array(msg.ranges, dtype=np.float32)
-        arr[np.isinf(arr)] = np.nan
-        # keep first 360 beams as trained
-        self.lidar = arr[:360]
+        if self.seq_index < len(self.sequence):
+            self.send_next_command()
+        else:
+            self.current_lap += 1
+            if self.current_lap < self.total_laps:
+                self.get_logger().info(f"Tour {self.current_lap} terminé. Démarrage du tour suivant...")
+                self.init_rectangle_sequence()
+                self.send_next_command()
+            else:
+                self.get_logger().info("Parcours rectangulaire terminé après 3 tours.")
 
-    def odom_cb(self, msg: Odometry):
-        pos = msg.pose.pose.position
-        self.odom = np.array([pos.x, pos.y, pos.z], dtype=np.float32)
+    def init_rectangle_sequence(self):
+        # Rectangle à angle droit avec deux côtés longs et deux côtés courts
+        self.sequence = [
+            "drive_long", "rotate_left",
+            "drive_short", "rotate_left",
+            "drive_long", "rotate_left",
+            "drive_short", "rotate_left"
+        ]
+        self.seq_index = 0
 
-    def action_done_callback(self, msg: String):
-        self.get_logger().info(f'Action done: {msg.data}')
-        self.action_in_progress = False
-        if msg.data == 'undock_done':
-            return
-        self.send_rl_action()
-
-    def send_rl_action(self):
-        if self.action_in_progress or self.rgb is None or self.lidar is None or self.odom is None:
-            return
-        obs = {
-            'rgb': self.rgb,
-            'lidar': self.lidar,
-            'imu': self.odom,
-        }
-        action, _ = self.model.predict(obs, deterministic=True)
-        cmd = ['move_forward', 'move_backward', 'rotate_left', 'rotate_right'][int(action)]
-        msg = String(); msg.data = cmd
-        self.pub_action.publish(msg)
-        self.get_logger().info(f'Published RL action: {cmd}')
-        self.action_in_progress = True
-
-    def destroy_node(self):
-        super().destroy_node()
-
+    def send_next_command(self):
+        command = self.sequence[self.seq_index]
+        self.seq_index += 1
+        msg = String()
+        msg.data = command
+        self.publisher.publish(msg)
+        self.get_logger().info(f"Commande envoyée : {command}")
 
 def main(args=None):
     rclpy.init(args=args)
-    node = Computation2Controller()
+    node = ComputationController()
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:
-        node.get_logger().info('Keyboard interrupt, shutting down')
+        node.get_logger().info("Interruption clavier, arrêt.")
     finally:
         node.destroy_node()
         rclpy.shutdown()
 
 if __name__ == '__main__':
     main()
+

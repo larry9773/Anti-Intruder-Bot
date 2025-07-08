@@ -27,18 +27,14 @@ class MoveController(Node):
 
         if command == "undock":
             self.call_undock_action()
-        elif command == "move_forward":
+        elif command in ["drive_long", "drive_short"]:
             # Choix de la distance selon la commande
-            distance = 0.25
+            distance = 1.0 if command == "drive_long" else 0.5
             self.drive_actionCall(distance)
-        elif command == "move_backward":
-            # Choix de la distance selon la commande
-            distance = 0.25
-            self.drive_actionCall(-distance)
         elif command == "rotate_left":
-            self.call_rotate_action(0.523598)   # 30° en radians
+            self.call_rotate_action(1.5708)   # 90° en radians
         elif command == "rotate_right":
-            self.call_rotate_action(-0.523598)  # -30° en radians
+            self.call_rotate_action(-1.5708)  # -90° en radians
         else:
             self.get_logger().warn(f"Commande inconnue : {command}")
             self.action_in_progress = False

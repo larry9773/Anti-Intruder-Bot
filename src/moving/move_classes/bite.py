@@ -19,16 +19,21 @@ class MoveController(Node):
             10
         )
 
+        # Souscription aux commandes textuelles
         self.subscription = self.create_subscription(
             String,
             'robot_action',
             self.cmd_callback,
-            10)
-
+            10
+        )
         self.sub_cmd = self.create_subscription(
-            String, 'cmd', self.cmd_callback, 10
+            String,
+            'cmd',
+            self.cmd_callback,
+            10
         )
 
+        # Clients d’actions
         self.undock_client = ActionClient(self, Undock, 'undock')
 
         # Publisher pour notifier la fin d'action
@@ -52,18 +57,30 @@ class MoveController(Node):
             return
         goal = Undock.Goal()
         self.get_logger().info("Envoi Undock → libération du robot")
-        fut = self.undock_client.send_goal_async(goal)
-        fut.add_done_callback(self._on_undock_response)
+        send_goal_future = self.undock_client.send_goal_async(goal)
+        send_goal_future.add_done_callback(self._on_undock_response)
 
     def _on_undock_response(self, future):
+        # future.result() est un ClientGoalHandle
+        goal_handle = future.result()
+        if not goal_handle.accepted:
+            self.get_logger().error("Undock rejeté par le serveur !")
+            self._publish_done('undock_failed')
+            return
+        # une fois accepté, on attend le résultat
+        goal_handle.get_result_async().add_done_callback(self._on_undock_done)
+
+    def _on_undock_done(self, future):
+        # future.result().result est un Undock.Result
         result = future.result().result
-        status = 'undock_failed'
-        if result.success:
+        '''if result.success:
             self.get_logger().info("Undock terminé avec succès.")
             status = 'undock_done'
         else:
             self.get_logger().error("Échec de l’undock.")
-        self._publish_done(status)
+            status = 'undock_failed'
+            '''
+        self._publish_done('undock_done')
 
     def cmdvel_callback(self, msg: Twist):
         if self.action_in_progress:
@@ -89,13 +106,13 @@ class MoveController(Node):
     def _drive_distance(self, distance: float):
         self.drive_client = ActionClient(self, DriveDistance, 'drive_distance')
         if not self.drive_client.wait_for_server(timeout_sec=5.0):
-            self.get_logger().error("Serveur DriveDistance indisponible!")
+            self.get_logger().error("Serveur DriveDistance indisponible !")
             self.action_in_progress = False
             return
 
         goal = DriveDistance.Goal()
         goal.distance = distance
-        self.get_logger().info(f"Envoi DriveDistance: {distance:.2f} m")
+        self.get_logger().info(f"Envoi DriveDistance : {distance:.2f} m")
         future = self.drive_client.send_goal_async(goal)
         future.add_done_callback(self._on_drive_response)
 
@@ -114,13 +131,13 @@ class MoveController(Node):
     def _rotate_angle(self, angle: float):
         self.rotate_client = ActionClient(self, RotateAngle, 'rotate_angle')
         if not self.rotate_client.wait_for_server(timeout_sec=4.0):
-            self.get_logger().error("Serveur RotateAngle indisponible!")
+            self.get_logger().error("Serveur RotateAngle indisponible !")
             self.action_in_progress = False
             return
 
         goal = RotateAngle.Goal()
         goal.angle = angle
-        self.get_logger().info(f"Envoi RotateAngle: {angle:.2f} rad")
+        self.get_logger().info(f"Envoi RotateAngle : {angle:.2f} rad")
         future = self.rotate_client.send_goal_async(goal)
         future.add_done_callback(self._on_rotate_response)
 
@@ -153,6 +170,7 @@ def main(args=None):
     finally:
         node.destroy_node()
         rclpy.shutdown()
+
 
 if __name__ == '__main__':
     main()

@@ -16,7 +16,7 @@ from tf_transformations import quaternion_matrix
 from turtlebot_detector_node import DetectorNode
 from datetime import datetime
 import os
-from sensor_msgs.msg import JointState
+from irobot_create_msgs.msg import HazardDetectionVector
 
 # ------------------------------------------------------------
 # Quelques hyper-paramètres qu’il faudra peut-être ajuster :
@@ -27,7 +27,6 @@ DEVICE          = "cuda"                          # ou "cuda" si vous avez un GP
 IMU_TOPIC       = "/oakd/imu/data"
 LIDAR_TOPIC     = "/scan"
 GRAVITY         = np.array([0.0, 0.0, 9.80665], dtype=np.float32)
-
 # ------------------------------------------------------------
 
 class PolicyController(Node):
@@ -52,22 +51,20 @@ class PolicyController(Node):
         self.sub_done = self.create_subscription(
             String, "action_done", self.cb_action_done, 10
         )
+       # 1) Souscription au bumper (hazard_detection)
+        self.sub_bumper = self.create_subscription(
+            HazardDetectionVector,
+            '/hazard_detection',
+            self.bumper_cb,
+            10
+        )
 
-        self.state = 0
+        self.bump_detected = False
 
         qos = QoSProfile(
         reliability=QoSReliabilityPolicy.BEST_EFFORT,
         history=QoSHistoryPolicy.KEEP_LAST,
         depth=1)
-
-        '''self.sub_joints = self.create_subscription(
-            JointState, '/joint_states', self.cb_joints, qos_profile=qos
-        )'''
-        self.prev_left = None
-        self.prev_right = None
-        self.x = 0.0
-        self.y = 0.0
-        self.yaw = 0.0
 
         self.sub_img  = self.create_subscription(
             Image, IMAGE_TOPIC, self.cb_image, qos_profile=qos
@@ -82,6 +79,7 @@ class PolicyController(Node):
         self.action_pending = False         # en attente d’un retour action_done
 
         self.last_lidar = None
+        self.yaw = 0.0
         self.last_image = None
 
         self.last_position     = np.zeros(3, dtype=np.float32)
@@ -92,15 +90,11 @@ class PolicyController(Node):
         self.frame = None
         self.frame_dir = './tmp/turtlebot_frames'
         self.frame_id = 0
+        self.last_command = None
         os.makedirs(self.frame_dir, exist_ok=True)
         # 4) Send an undock first so the robot is free to move
         self.send_command("undock")
 
-        self.MIN_DIST = 0.75  # en mètres, distance minimale de sécurité
-        self.WHEEL_RADIUS = 0.033    # m
-        self.WHEEL_BASE   = 0.16     # m  (distance entre roues)
-        self.last_command = None
-        
     # =================================================================
     # callback : nouvelle image
     def cb_image(self, msg: Image):
@@ -108,9 +102,9 @@ class PolicyController(Node):
         self.frame = frame
         img = self.preprocess_image(frame)
         self.last_image = img
-        #filename = os.path.join(self.frame_dir, f'frame_{self.frame_id}.png')
+        '''filename = os.path.join(self.frame_dir, f'frame_{self.frame_id}.png')
 
-        '''img_save = (img * 255.0).clip(0, 255).astype(np.uint8)
+        img_save = (img * 255.0).clip(0, 255).astype(np.uint8)
         cv2.imwrite(filename, img_save)
         self.get_logger().info(f'Image saved to {filename}')'''
         self.update_last_obs()
@@ -133,7 +127,7 @@ class PolicyController(Node):
         # quaternion -> rotation matrix
         q = msg.orientation
         rot = quaternion_matrix([q.x, q.y, q.z, q.w])[:3, :3]
-        acc_world = rot.dot(acc_body) #- GRAVITY
+        acc_world = rot.dot(acc_body) - GRAVITY
 
         # Update velocity and position via integration
         self.last_velocity += acc_world * dt
@@ -141,37 +135,22 @@ class PolicyController(Node):
         self.get_logger().info(f"Current position : {self.last_position}")
         self.update_last_obs()
         #self.try_decide()
-
-    def cb_joints(self, msg: JointState):
-        # on repère les deux roues
-        try:
-            i_l = msg.name.index('wheel_left_joint')
-            i_r = msg.name.index('wheel_right_joint')
-        except ValueError:
-            return  # topics différents ?
-        pos_l = msg.position[i_l]
-        pos_r = msg.position[i_r]
-        
-        if self.prev_left is not None:
-            dtheta_l = pos_l - self.prev_left
-            dtheta_r = pos_r - self.prev_right
-            
-            dl = self.WHEEL_RADIUS * dtheta_l
-            dr = self.WHEEL_RADIUS * dtheta_r
-            
-            d_center = (dl + dr) / 2.0
-            d_yaw    = (dr - dl) / self.WHEEL_BASE
-            
-            self.yaw += d_yaw
-            self.x   += d_center * np.cos(self.yaw)
-            self.y   += d_center * np.sin(self.yaw)
-            
-            self.last_position = np.array([self.x, self.y], dtype=np.float32)
-            self.last_yaw      = float(self.yaw)
-            # et continuez de remplir self.last_obs comme avant…
-        
-        self.prev_left  = pos_l
-        self.prev_right = pos_r
+    
+    def bumper_cb(self, msg: HazardDetectionVector):
+        """
+        Callback appelé dès qu'une détection de hazard survient.
+        Le type==0 correspond à un contact bumper (front).
+        """
+        # Est-ce que le bumper vient d'être pressé ?
+        pressed = any(d.type == 0 for d in msg.detections)
+        if pressed and not self.bump_detected:
+            self.get_logger().warn('Bumper pressé – manœuvre d’évitement')
+            back = String(); back.data = 'move_backward'
+            self.pub_action.publish(back)
+            turn = String(); turn.data = 'rotate_left'
+            self.pub_action.publish(turn)
+            self.action_in_progress = True
+        self.bump_detected = pressed
 
     def cb_lidar(self, msg: LaserScan):
 
@@ -205,15 +184,7 @@ class PolicyController(Node):
             ranges = ranges[idx]
         #self.get_logger().info(ranges)
         # 4) Stockage et mise à jour de l’observation'''
-
         self.last_lidar = ranges
-        # Réaction immédiate si obstacle devant
-        front = np.concatenate([ranges[:15], ranges[-15:]])
-        if np.min(front) < self.MIN_DIST and not self.action_pending:
-            self.get_logger().warn(f"Obstacle à {np.min(front):.2f} m → esquive")
-            self.send_command('rotate_left')
-            return
-        
         self.update_last_obs()
         self.try_decide()
 
@@ -227,8 +198,6 @@ class PolicyController(Node):
             balls = results.get("balls", [])
             humans         = results.get("humans", [])
             report_lines = []
-
-            self.get_logger().info(f"state = {self.state}")
 
         # ---------- humans ----------
             if not humans:
@@ -259,9 +228,7 @@ class PolicyController(Node):
                     f"Balle détectée à {pos} (conf {best_ball['confidence']:.2f})"
                 )
                 # 3) Policy hard-codée :
-                if best_ball['position'] == "very close":
-                    self.state = 1
-                elif pos == 'left':
+                if pos == 'left':
                     cmd = 'rotate_left'
                 elif pos == 'right':
                     cmd = 'rotate_right'
@@ -306,8 +273,11 @@ class PolicyController(Node):
         # Dès qu’on reçoit le DONE, on décide à nouveau
         '''if self.last_obs is not None:
             self.decide_and_send()'''
-        result = _msg.data.strip().lower()
+        
         self.get_logger().info(f"position : {self.last_position}")
+
+        result = _msg.data.strip().lower()
+
         
         if self.last_command == "move_forward" and result == "drive_done":
             # 0.25 m en avant
@@ -347,16 +317,13 @@ class PolicyController(Node):
     def decide_and_send(self):
         """Appelle le modèle et publie la commande """
         #self.get_logger().info("last obs = ", self.last_obs)
-        if self.state == 0:
-            action_id, _ = self.model.predict(self.last_obs, deterministic=True)
-            self.get_logger().info(f"action_id = {action_id}")
-            cmd_str = self.id_to_command(action_id)
-            self.send_command(cmd_str)
+        action_id, _ = self.model.predict(self.last_obs, deterministic=True)
+        self.get_logger().info(f"action_id = {action_id}")
+        cmd_str = self.id_to_command(action_id)
+        self.send_command(cmd_str)
 
     
     def send_command(self, cmd_str: str):
-        if self.state == 1:
-            return
         self.last_command = cmd_str
         self.get_logger().info(f"→ envoi : {cmd_str}")
         msg = String();  msg.data = cmd_str
@@ -395,8 +362,7 @@ def main(args=None):
     rclpy.init(args=args)
     node = PolicyController()
     try:
-        if node.state == 0:
-            rclpy.spin(node)
+        rclpy.spin(node)
     except KeyboardInterrupt:
         node.get_logger().info("Arrêt demandé (Ctrl-C).")
     finally:

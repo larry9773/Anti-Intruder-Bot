@@ -36,9 +36,9 @@ class MoveController(Node):
             distance = 0.25
             self.drive_actionCall(-distance)
         elif command == "rotate_left":
-            self.call_rotate_action(0.523598)   # 30° en radians
+            self.call_rotate_action(0.05)   # 30° en radians
         elif command == "rotate_right":
-            self.call_rotate_action(-0.523598)  # -30° en radians
+            self.call_rotate_action(-0.05)  # -30° en radians
         else:
             self.get_logger().warn(f"Commande inconnue : {command}")
             self.action_in_progress = False

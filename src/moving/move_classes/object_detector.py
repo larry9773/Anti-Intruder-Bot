@@ -145,9 +145,9 @@ class PeopleAndBallDetector:
 
 
 def get_relative_position(x_center, image_width):
-    if x_center < image_width / 2.2:
+    if x_center < image_width / 4:
         return "left"
-    elif x_center > image_width / 1.8:
+    elif x_center > image_width / 1.25:
         return "right"
     else:
         return "center"
@@ -173,11 +173,11 @@ def estimate_ball_distance(radius_px, img_height):
     Tune the thresholds to taste.
     """
     relative = (2 * radius_px) / img_height      # diameter / image height
-    if relative > 0.8:
+    if relative > 0.3:
         return "very close"
-    elif relative > 0.6:
+    elif relative > 0.2:
         return "close"
-    elif relative > 0.4:
+    elif relative > 0.1:
         return "medium"
     else:
         return "far"
